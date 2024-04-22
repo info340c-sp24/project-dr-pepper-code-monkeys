@@ -8,7 +8,7 @@
 }
 
 #navbar {
-margin: auto;
+    margin: auto;
 }
 
 #navbar button, .search-button {
@@ -50,6 +50,7 @@ header {
     justify-content: center;
     align-items: center;
     max-width: 400px;
+    margin: 10px;
     margin-right: auto;
   }
 
