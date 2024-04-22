@@ -12,13 +12,16 @@
 </head>
 
 <body>
-    <header class="container-fluid bg-light text-black py-3">
-        <h1>
+    <header class="d-flex flex-row align-content-start container-fluid bg-light text-black py-3">
+        <div class="">
             <img src="img/logo.svg" alt="FFS logo" class="logo">
-            <label for="search" class="searchbar">Search:</label>
-            <input type="text" id="search" placeholder="Search listings...">
-        </h1>
-    </header>
+        </div>
+        <div class="search-container ms-4">
+          <input type="text" class="search-input" placeholder="-">
+          <button type="button" class="search-button">Search</button>
+        </div>
+        <p id="slogan">Linking Plates, Nourishing Lives.</p>
+      </header>
 
     <main class="container">
         <div class="row">
@@ -155,7 +158,7 @@
          <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                 <div class="card">
-                    <img src="img/bread.jpg" class="card-img-top" alt="Food item image"> 
+                    <img src="img/bread.jpg" class="card-img-top" alt="Food item image">
                     <div class="card-body">
                         <h2 class="card-title">Loaves of Bread</h2>
                         <h3 class="card-subtitle mb-2 text-muted">Neighborhood, Zip</h3>
@@ -164,7 +167,7 @@
             </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <div class="card">
-                        <img src="img/oreos.jpg" class="card-img-top" alt="Food item image"> 
+                        <img src="img/oreos.jpg" class="card-img-top" alt="Food item image">
                         <div class="card-body">
                             <h2 class="card-title">Oreos</h2>
                             <h3 class="card-subtitle mb-2 text-muted">Neighborhood, Zip</h3>
@@ -173,7 +176,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <div class="card">
-                        <img src="img/applejuice.jpg" class="card-img-top" alt="Food item image"> 
+                        <img src="img/applejuice.jpg" class="card-img-top" alt="Food item image">
                         <div class="card-body">
                             <h2 class="card-title">Apple Juice</h2>
                             <h3 class="card-subtitle mb-2 text-muted">Neighborhood, Zip</h3>
@@ -182,7 +185,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <div class="card">
-                        <img src="img/orangejuice.jpg" class="card-img-top" alt="Food item image"> 
+                        <img src="img/orangejuice.jpg" class="card-img-top" alt="Food item image">
                         <div class="card-body">
                             <h2 class="card-title">Orange Juice</h2>
                             <h3 class="card-subtitle mb-2 text-muted">Neighborhood, Zip</h3>
@@ -200,7 +203,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <div class="card">
-                        <img src="img/lemons.jpg" class="card-img-top" alt="Food item image"> 
+                        <img src="img/lemons.jpg" class="card-img-top" alt="Food item image">
                         <div class="card-body">
                             <h2 class="card-title">Lemons</h2>
                             <h3 class="card-subtitle mb-2 text-muted">Neighborhood, Zip</h3>
@@ -209,7 +212,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <div class="card">
-                        <img src="img/apples.jpg" class="card-img-top" alt="Food item image"> 
+                        <img src="img/apples.jpg" class="card-img-top" alt="Food item image">
                         <div class="card-body">
                             <h2 class="card-title">Apples</h2>
                             <h3 class="card-subtitle mb-2 text-muted">Neighborhood, Zip</h3>
@@ -218,7 +221,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <div class="card">
-                        <img src="img/oranges.jpg" class="card-img-top" alt="Food item image"> 
+                        <img src="img/oranges.jpg" class="card-img-top" alt="Food item image">
                         <div class="card-body">
                             <h2 class="card-title">Oranges</h2>
                             <h3 class="card-subtitle mb-2 text-muted">Neighborhood, Zip</h3>
@@ -227,7 +230,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <div class="card">
-                        <img src="img/groundbeef.jpg" class="card-img-top" alt="Food item image"> 
+                        <img src="img/groundbeef.jpg" class="card-img-top" alt="Food item image">
                         <div class="card-body">
                             <h2 class="card-title">Ground Beef</h2>
                             <h3 class="card-subtitle mb-2 text-muted">Neighborhood, Zip</h3>
@@ -237,7 +240,7 @@
 
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <div class="card">
-                        <img src="img/peaches.jpg" class="card-img-top" alt="Food item image"> 
+                        <img src="img/peaches.jpg" class="card-img-top" alt="Food item image">
                         <div class="card-body">
                             <h2 class="card-title">Peaches</h2>
                             <h3 class="card-subtitle mb-2 text-muted">Neighborhood, Zip</h3>
@@ -255,7 +258,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <div class="card">
-                        <img src="img/rice.jpg" class="card-img-top" alt="Food item image"> 
+                        <img src="img/rice.jpg" class="card-img-top" alt="Food item image">
                         <div class="card-body">
                             <h2 class="card-title">White Rice</h2>
                             <h3 class="card-subtitle mb-2 text-muted">Neighborhood, Zip</h3>

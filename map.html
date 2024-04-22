@@ -1,73 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Food map</title>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <!--Bootstrap Link--> 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Food map</title>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <!--Bootstrap Link-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
 
-</head>
-<header>
-    <h1> 
-        Find food in Seattle
-    </h1>
-</header>
-<body id="mapbody">
-    <main>
-        <div id="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172153.722211444!2d-122.50460527321735!3d47.608596976645785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490102c93e83355%3A0x102565466944d59a!2sSeattle%2C%20WA!5e0!3m2!1sen!2sus!4v1713551259423!5m2!1sen!2sus" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </head>
+    <body id="mapbody">
+        <header class="d-flex flex-row align-content-start container-fluid bg-light text-black py-3">
+            <div class="">
+                <img src="img/logo.svg" alt="FFS logo" class="logo">
+            </div>
+            <div class="search-container ms-4">
+            <input type="text" class="search-input" placeholder="-">
+            <button type="button" class="search-button">Search</button>
+            </div>
+            <p id="slogan">Linking Plates, Nourishing Lives.</p>
+        </header>
+        <main>
+            <div id="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172153.722211444!2d-122.50460527321735!3d47.608596976645785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490102c93e83355%3A0x102565466944d59a!2sSeattle%2C%20WA!5e0!3m2!1sen!2sus!4v1713551259423!5m2!1sen!2sus" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </main>
+
+        <style>
+            header{
+                background-color:grey;
+            }
+            h1{
+                color:white;
+                text-align: center;
+                padding:0.5rem;
+            }
+            iframe{
+                width:100%;
+                margin-left:auto;
+                margin-right:auto;
+            }
+        </style>
+
+
+
+
+
+    </body>
+
+    <footer>
+        <div id="social-links">
+            <a href="#"><i class="fa fa-instagram" aria-label="instagram"></i></a>
+            <a href="#"><i class="fa fa-twitter-square" aria-label="twitter"></i></a>
+            <a href="#"><i class="fa fa-facebook-square" aria-label="facebook"></i></a>
+            <a href="#"><i class="fa fa-github" aria-label="github"></i></a>
         </div>
-    </main>
-    
-    <style>
-        header{
-            background-color:grey;
-        }
-        h1{
-            color:white;
-            text-align: center;
-            padding:0.5rem;
-        }
-        iframe{
-            width:100%;
-            margin-left:auto;
-            margin-right:auto;
-        }
-    </style>
+        <p>&copy; <span style=color:Green> Find Food </span><span style=color:red>Seattle</span>2024</p>
 
-
-
-
-
-</body>
-
-<footer> 
-    <div id="social-links">
-        <a href="#"><i class="fa fa-instagram" aria-label="instagram"></i></a>
-        <a href="#"><i class="fa fa-twitter-square" aria-label="twitter"></i></a>
-        <a href="#"><i class="fa fa-facebook-square" aria-label="facebook"></i></a>
-        <a href="#"><i class="fa fa-github" aria-label="github"></i></a>
-     </div>
-    <p>&copy; <span style=color:Green> Find Food </span><span style=color:red>Seattle</span>2024</p>
-
-</footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </footer>
 </html>
