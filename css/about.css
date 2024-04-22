@@ -24,9 +24,15 @@
 #goals {
   animation: slideInFromLeft 1s ease-in-out forwards;
   opacity: 0;
-  animation-delay: 2s;
+  animation-delay: 1s;
 }
 
 .card {
   margin: 20px;
+}
+
+.ballard-cap {
+  text-align: center;
+  color: rgb(0, 59, 11);
+  font-weight: bold;
 }
