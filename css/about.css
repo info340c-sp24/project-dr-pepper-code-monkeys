@@ -5,3 +5,28 @@
 #desc {
   text-indent: 2em;
 }
+
+#about-desc-box {
+  animation: slideInFromLeft 1s ease-in-out forwards;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+      opacity: 0;
+      transform: translateX(-100px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+#goals {
+  animation: slideInFromLeft 1s ease-in-out forwards;
+  opacity: 0;
+  animation-delay: 2s;
+}
+
+.card {
+  margin: 20px;
+}

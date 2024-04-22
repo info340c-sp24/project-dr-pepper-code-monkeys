@@ -10,7 +10,7 @@
   <title>About</title>
 </head>
 <body>
-  <header class="d-flex flex-row align-content-start container-fluid bg-light text-black py-3">
+  <header class="d-flex flex-row justify-content-center container-fluid bg-light text-black py-3">
     <div class="">
         <img src="img/logo.svg" alt="FFS logo" class="logo">
     </div>
@@ -18,12 +18,21 @@
       <input type="text" class="search-input" placeholder="-">
       <button type="button" class="search-button">Search</button>
     </div>
-    <p id="slogan">Linking Plates, Nourishing Lives.</p>
+    <div id="navbar">
+      <button>Home</button>
+      <button>About</button>
+      <button>Listings</button>
+      <button>Find a Center Near Me</button>
+    </div>
+    <div>
+      <p id="slogan">Linking Plates, Nourishing Lives.</p>
+    </div>
+
   </header>
   <main>
     <section class="d-flex flex-row mb-3 mt-4">
-      <div class="justify-content-center ms-4 me-4">
-        <h1 class="ms-4">About Find Food Seattle</h1>
+      <div id="about-desc-box" class="justify-content-center ms-4 me-4">
+        <h1 class="ms-4">About Us</h1>
         <p id="desc" class="fs-5">
           Find Food Seattle was created with the goal of increasing access to government and private
           programs and events providing free or subsidized food, as well as serving as a space to
@@ -35,9 +44,44 @@
           regularly and individuals / organizations that request it.
         </p>
       </div>
-      <div class="me-3">
+      <div id="about-img-box" class="me-3">
         <img id="ballard-food-bank-img" src="img/about-store.jpeg" alt="Ballard Food Bank">
         <p>Image from <a href="https://www.ballardfoodbank.org/">Ballard Food Bank</a></p>
+      </div>
+    </section>
+    <section>
+      <div id="goals" class="ms-4">
+        <h1>Our Goals</h1>
+        <div class="d-flex flex-row">
+          <div class="card" style="width: 18rem;">
+            <img src="img/about-giving-food.webp" class="card-img-top"
+                alt="a Seattle Restaraunt employee giving a woman and her child food.">
+            <div class="card-body">
+              <p class="card-text">
+                Connecting locals with excess food, such as restaraunt owners,
+                To those who may need it.
+              </p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="img/about-successful-food-drive.webp" class="card-img-top"
+                alt="A young girl and woman volunteering at a food drive.">
+            <div class="card-body">
+              <p class="card-text">
+                Increasing invisibilty of food drive events.
+              </p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="img/about-seattle-road-map.jpeg" class="card-img-top"
+                alt="A map of seattle.">
+            <div class="card-body">
+              <p class="card-text">
+                Giving people the chance to find stores near them, no matter the device.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>

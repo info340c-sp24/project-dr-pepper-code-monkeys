@@ -1,3 +1,4 @@
+
 .logo{
     top: 0;
     left: 0;
@@ -6,13 +7,42 @@
     margin-right: 3em;
 }
 
+#navbar {
+margin: auto;
+}
+
+#navbar button, .search-button {
+    border: 1.5px solid black;
+    border-radius: 5%;
+    padding: .25em;
+    padding-left: .75em;
+    padding-right: .75em;
+    margin-left: 10px;
+    margin-right: 10px;
+    transition-duration: 0.4s;
+}
+
+#navbar button:hover {
+background-color: #04AA6D; /* Green */
+color: white;
+}
+
 header {
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 #slogan {
+    font-style: italic;
     font-weight: bold;
-    text-align: left;
+    position: relative;
+    top: 0;
+    right: 0;
+    margin: 10px;
 }
 
 .search-container {
