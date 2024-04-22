@@ -1,8 +1,18 @@
 .logo{
     top: 0;
     left: 0;
-    width: 300px;
-    height: 100px;
+    width: 120px;
+    height: auto;
+    margin-right: 3em;
+}
+
+header {
+    flex-wrap: wrap;
+}
+
+#slogan {
+    font-weight: bold;
+    text-align: left;
 }
 
 .search-container {
@@ -10,6 +20,7 @@
     justify-content: center;
     align-items: center;
     max-width: 400px;
+    margin-right: auto;
   }
 
   .search-input {
@@ -49,19 +60,19 @@
 }
 
 .card-title {
-    font-size: 24px; 
-    height: 60px; 
+    font-size: 24px;
+    height: 60px;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .card-subtitle {
-    font-size: 14px; 
-    height: 40px; 
-    color: #666; 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
+    font-size: 14px;
+    height: 40px;
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
 }
 
