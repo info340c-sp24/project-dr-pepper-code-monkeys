@@ -28,9 +28,11 @@ export async function initMap() {
 
   return map;
 }
-//add new marker on google map, takes a position in the format
-//{lat:x,lng:y} and name of the marker. 
-//Probably new more modification but will let it be now. 
+//add new marker on google map, takes a position
+//{lat:x,lng:y}, a title, image of food, and expiration date. 
+
+//Now only implemented position, title, and image and will need to work on styling
+//Probably new more modifications but will let it be now. 
 export function addMarker(marker){
   google.maps.importLibrary("marker").then(({ AdvancedMarkerElement }) => {
     // Add new position to markers array
@@ -41,16 +43,23 @@ export function addMarker(marker){
           position: {lat:mark.lat,lng:mark.lng},
           map: map,
           title: mark.title,
-          content:buildContent(mark.content)
+          content:buildContent(mark)
       })
       })
     }
   })
 }
 
-function buildContent(content){
-  content.style.width='50px';
-  content.style.height='50px';
-  return content;
+function buildContent(mark){
+  let div = document.createElement('div');
+  div.innerHTML = `<div class="card" style="width:200x;height:200px;">
+  <img src="${mark.img.src}" class="card-img-top" style="width: 100%; height:30%;" alt="...">
+  <div class="card-body">
+  <h1 class="card-title text-xs">${mark.title}</h1>
+  <p class="card-text text-xs">Quantity:</p>
+  </div>
+  </div>`;
   
+  return div;
 }
+
