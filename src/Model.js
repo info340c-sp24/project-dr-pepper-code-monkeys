@@ -1,7 +1,5 @@
 'use strict';
 let map;
-//array of markers position
-let markers = [];
 // Define the initMap function
 export async function initMap() {
   // Set location at Seattle
@@ -33,20 +31,26 @@ export async function initMap() {
 //add new marker on google map, takes a position in the format
 //{lat:x,lng:y} and name of the marker. 
 //Probably new more modification but will let it be now. 
-export function addMarker(newPosition,name){
+export function addMarker(marker){
   google.maps.importLibrary("marker").then(({ AdvancedMarkerElement }) => {
     // Add new position to markers array
-    markers.push(newPosition);
     // Clear existing markers and add new ones
-    if(markers&&markers.length!==0){
-      markers.forEach(mark =>{
+    if(marker&&marker.length!==0){
+      marker.forEach((mark) =>{
         const marker = new AdvancedMarkerElement({
-          position: mark,
+          position: {lat:mark.lat,lng:mark.lng},
           map: map,
-          title: name,
+          title: mark.title,
+          content:buildContent(mark.content)
       })
       })
     }
   })
 }
 
+function buildContent(content){
+  content.style.width='50px';
+  content.style.height='50px';
+  return content;
+  
+}
