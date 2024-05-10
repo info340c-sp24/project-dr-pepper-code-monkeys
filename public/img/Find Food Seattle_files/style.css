@@ -125,12 +125,3 @@ header {
 .form-select, .form-control {
     margin-top: 5px;
 }
-
-.card-title, .modal-content, .card-subtitle, .form-label {
-    color: black; 
-}
-
-.icon {
-    height:20px;
-    width:auto;
-}
