@@ -1,10 +1,11 @@
 import React from 'react';
 import { MainPage } from './createMainPage';
-import { Footer } from './createFooter';
+import { Map } from './createMapPage';
+import { Listings } from './createListingPage';
 export default function App(){
     return (
             <div>
-                <MainPage />
+                <Listings />
             </div>
     )
 

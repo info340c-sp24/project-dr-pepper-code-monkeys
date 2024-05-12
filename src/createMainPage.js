@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavBar } from './createNavBar';
+import { Header } from './createHeader';
 import { Footer } from './createFooter';
 import { Cards } from './createCard';
 const cardInfos = [
@@ -20,27 +20,13 @@ export function MainPage(){
 //Create Header
 function Head(){
     return (
-        <header className="d-flex flex-row justify-content-center container-fluid bg-light text-black py-3">
-        <div className="">
-            <img src="/img/logo.svg" alt="FFS logo" className="logo"/>
-        </div>
-        <div className="search-container ms-4">
-          <input type="text" className="search-input" placeholder="-"/>
-          <button type="button" className="search-button">Search</button>
-        </div>
-            <NavBar />
-        <div>
-          <p id="slogan">Linking Plates, Nourishing Lives.</p>
-        </div>
-      </header>
+    <Header />
     )
 }
 
-
-
 //Takes a cardInfo element formatted 
 //{id:'1',Img:'/img/giving.jpeg',Alt:'people giving food',Title:'Food Listing',Buttontext:'Go'}
-//to create 
+//to create content body
 function Body({cardInfo}){
     return (
     <main>
@@ -55,6 +41,7 @@ function Body({cardInfo}){
     )
 }
 
+//To create footer 
 function Foot(){
     return (
         <Footer />
