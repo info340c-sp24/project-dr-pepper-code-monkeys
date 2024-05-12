@@ -1,5 +1,5 @@
-import Raect from 'react';
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 export function Cards({cardData}){
     return (
         <div className="col-md-4 d-flex mt-5">
@@ -11,7 +11,7 @@ export function Cards({cardData}){
                             <div className="row">
                                 <div className="col-sm">
                                     <h1 className="card-title pb-5">{cardData.Title}</h1>
-                                    <a href="#" className="btn btn-outline-dark btn-lg">{cardData.Buttontext}</a>
+                                    <Link to={cardData.Path} className="btn btn-outline-dark btn-lg">{cardData.Buttontext}</Link>
                                 </div>
                             </div>
                         </div>

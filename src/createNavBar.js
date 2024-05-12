@@ -1,13 +1,13 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 export function NavBar(){
     return (
         <div id="navbar">
-            <a href="index.html"><button>Home</button></a>
-            <a href="about.html"><button>About</button></a>
-            <a href="listings.html"><button>Listings</button></a>
-            <a href="map.html"><button>Find a Center Near Me</button></a>
+            <Link className="btn btn-outline-dark btn-lg" to='MainPage'>Home</Link>
+            <Link className="btn btn-outline-dark btn-lg" to='About'>About</Link>
+            <Link className="btn btn-outline-dark btn-lg" to='Listings'>Listings</Link>
+            <Link className="btn btn-outline-dark btn-lg" to='Map'>Search for Foods</Link>
         </div>
     )
 };

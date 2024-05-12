@@ -3,9 +3,9 @@ import { Header } from './createHeader';
 import { Footer } from './createFooter';
 import { Cards } from './createCard';
 const cardInfos = [
-    {id:'1',Img:'/img/giving.jpeg',Alt:'people giving food',Title:'Food Listing',Buttontext:'Go'},
-    {id:'2',Img:'/img/map.jpeg',Alt:'map of seattle',Title:'Find Food',Buttontext:'Go'},
-    {id:'3',Img:'/img/mission.jpeg',Alt:'mission',Title:'Our Mission',Buttontext:'Go'}
+    {Img:'/img/giving.jpeg',Alt:'people giving food',Title:'Food Listing',Buttontext:'Go',Path:'Listings'},
+    {Img:'/img/map.jpeg',Alt:'map of seattle',Title:'Find Food',Buttontext:'Go', Path:'Map'},
+    {Img:'/img/mission.jpeg',Alt:'mission',Title:'Our Mission',Buttontext:'Go', Path:'About'}
 ];
 //This page creats the cover page.
 export function MainPage(){
@@ -32,8 +32,8 @@ function Body({cardInfo}){
     <main>
         <div className="container pb-5">
                 <div className="row row-cols-1 cols-md-3 g-3">
-                    {cardInfo.map((card) => (
-                        <Cards key={card.id} cardData={card} />
+                    {cardInfo.map((card, index) => (
+                        <Cards key={index} cardData={card} />
                     ))}
                 </div>
         </div>
