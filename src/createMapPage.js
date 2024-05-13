@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
 import { Header } from './createHeader';
 import { Footer } from './createFooter';
-export function Map(){
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+export function FoodMap(){
     return[<Head />,
            <Body />,
            <Foot />
@@ -9,23 +10,60 @@ export function Map(){
 
 }
 
+
+const containerStyle = {
+  width: '400px',
+  height: '400px'
+};
+
+const center = {
+  lat: -3.745,
+  lng: -38.523
+};
+
+function MyComponent() {
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: "AIzaSyAZR9PLUAH6mNaa8XYLcyBq1q0INnmpsTs"
+  })
+
+  const [map, setMap] = React.useState(null)
+
+  const onLoad = React.useCallback(function callback(map) {
+    // This is just an example of getting and using the map instance!!! don't just blindly copy!
+    const bounds = new window.google.maps.LatLngBounds(center);
+    map.fitBounds(bounds);
+
+    setMap(map)
+  }, [])
+
+  const onUnmount = React.useCallback(function callback(map) {
+    setMap(null)
+  }, [])
+
+  return isLoaded ? (
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={10}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+      >
+        { /* Child components, such as markers, info windows, etc. */ }
+        <></>
+      </GoogleMap>
+  ) : <></>
+}
+
+function Body(){
+
+    return <>React.memo(MyComponent)</>
+}
+
 //create header
 function Head(){
     return (
         <Header />
-    )
-}
-
-function Body(){
-    const loadMap = () =>{
-        const script=document.createElement('script');
-        script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAZR9PLUAH6mNaa8XYLcyBq1q0INnmpsTs&v=weekly';
-        document.body.appendChild(script);
-    }
-    loadMap();
-    return (
-        <div id="map">
-        </div>
     )
 }
 
