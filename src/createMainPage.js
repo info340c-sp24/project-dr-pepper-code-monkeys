@@ -2,11 +2,14 @@ import React from 'react';
 import { Header } from './createHeader';
 import { Footer } from './createFooter';
 import { Cards } from './createCard';
-const cardInfos = [
+
+//These are information needed to creat main page cards. 
+let cardInfos = [
     {Img:'/img/giving.jpeg',Alt:'people giving food',Title:'Food Listing',Buttontext:'Go',Path:'Listings'},
     {Img:'/img/map.jpeg',Alt:'map of seattle',Title:'Find Food',Buttontext:'Go', Path:'Map'},
     {Img:'/img/mission.jpeg',Alt:'mission',Title:'Our Mission',Buttontext:'Go', Path:'About'}
 ];
+
 //This page creats the cover page.
 export function MainPage(){
     return[
@@ -24,9 +27,7 @@ function Head(){
     )
 }
 
-//Takes a cardInfo element formatted 
-//{id:'1',Img:'/img/giving.jpeg',Alt:'people giving food',Title:'Food Listing',Buttontext:'Go'}
-//to create content body
+//Create main page cards it take a format listed above in cardInfos
 function Body({cardInfo}){
     return (
     <main>

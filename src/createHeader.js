@@ -2,7 +2,7 @@ import React from 'react';
 import { NavBar } from './createNavBar';
 
 
-
+//Creates header
 export function Header(){
     return (
         <header className="d-flex flex-row justify-content-center container-fluid bg-light text-black py-3">

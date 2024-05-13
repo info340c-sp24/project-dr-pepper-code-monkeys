@@ -1,5 +1,8 @@
 import React from 'react';
 
+
+//Create '+createList' input in listing. FoodData require an object with such
+//{Location:'place', Food:'food'}
 export function FoodInput({FoodData}) {
 
     const handleSubmit = (event) => {
@@ -64,6 +67,8 @@ export function FoodInput({FoodData}) {
     );
 }
 
+//Create filter options Food, requires an object with 
+//{Food:'food}
 export function FoodOptions({FoodData}) {
     return (
         <>
@@ -77,6 +82,8 @@ export function FoodOptions({FoodData}) {
     );
 }
 
+//Creates filter options Neighborhood, requires an object with 
+//{Location:'place'}
 export function NeighborhoodOptions({FoodData }) {
     return (
         <>

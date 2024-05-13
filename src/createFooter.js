@@ -1,5 +1,6 @@
 import React from 'react';
 
+//Generic footer, change as needed
 export function Footer(){
     return (
         <footer>
