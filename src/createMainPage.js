@@ -29,13 +29,14 @@ function Head(){
 
 //Create main page cards it take a format listed above in cardInfos
 function Body({cardInfo}){
+    const MainCard = cardInfo.map((card, index) => (
+                        <Cards key={index} cardData={card} />
+                     ))
     return (
     <main>
         <div className="container pb-5">
                 <div className="row row-cols-1 cols-md-3 g-3">
-                    {cardInfo.map((card, index) => (
-                        <Cards key={index} cardData={card} />
-                    ))}
+                    {MainCard}
                 </div>
         </div>
     </main>

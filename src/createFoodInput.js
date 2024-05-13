@@ -70,13 +70,15 @@ export function FoodInput({FoodData}) {
 //Create filter options Food, requires an object with 
 //{Food:'food}
 export function FoodOptions({FoodData}) {
+
+    const Foods =  FoodData.map((Food, index) => (
+                        <option key={index}>{Food.Food}</option>
+                    ))
     return (
         <>
             <select class="form-select" id="foodTypeDropdown">
             <option value="" defaultValue>Choose...</option>
-            {FoodData.map((Food, index) => (
-                <option key={index}>{Food.Food}</option>
-            ))}
+                {Foods}
             </select>
         </>
     );
@@ -85,13 +87,14 @@ export function FoodOptions({FoodData}) {
 //Creates filter options Neighborhood, requires an object with 
 //{Location:'place'}
 export function NeighborhoodOptions({FoodData }) {
+    const Place = FoodData.map((neighborhood, index) => (
+                    <option key={index}>{neighborhood.Location}</option>
+                  ))
     return (
         <>
             <select class="form-select" id="neighborhoodDropdown">
             <option value="" defaultValue>Choose...</option>
-            {FoodData.map((neighborhood, index) => (
-                <option key={index}>{neighborhood.Location}</option>
-            ))}
+                {Place}
             </select>
         </>
     );
