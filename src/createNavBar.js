@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 export function NavBar(){
     return (
         <div id="navbar">
-            <Link className="btn btn-outline-dark btn-lg" to='/MainPage'>Home</Link>
-            <Link className="btn btn-outline-dark btn-lg" to='/About'>About</Link>
-            <Link className="btn btn-outline-dark btn-lg" to='/Listings'>Listings</Link>
-            <Link className="btn btn-outline-dark btn-lg" to='/Map'>Search for Foods</Link>
+            <Link className="btn btn-outline-dark btn-lg mx-1" to='/MainPage'>Home</Link>
+            <Link className="btn btn-outline-dark btn-lg mx-1" to='/About'>About</Link>
+            <Link className="btn btn-outline-dark btn-lg mx-1" to='/Listings'>Listings</Link>
+            <Link className="btn btn-outline-dark btn-lg mx-1" to='/Map'>Search for Foods</Link>
         </div>
     )
 };

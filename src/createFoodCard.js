@@ -1,5 +1,4 @@
 import React from 'react';
-
 //Create card listing each food, requires object with 
 //{Img:'url',Title:'title',Location:'place',Zip:'zip'}
 export function FoodCard({FoodData}){
@@ -10,10 +9,11 @@ export function FoodCard({FoodData}){
     )
 }
 
-//Create card listing each food, requires object with 
-//{Img:'url',Title:'title',Location:'place',Zip:'zip'}
+//Create card listing each food
 function Cards({FoodData}){
-        const FoodCard = FoodData.map((Food)=> (
+    let FoodCard
+    if(FoodData&&FoodData.length!==0){
+         FoodCard = FoodData.map((Food)=> (
             <div className="col-lg-3 col-md-4 col-sm-6 col-6 py-3">
                     <div className="card">
                         <img src={Food.Img} className="card-img-top" alt="Food item image"/>
@@ -24,6 +24,12 @@ function Cards({FoodData}){
                     </div>
                 </div>
             ))
+    }
+    else{
+        return (
+            <p className='fs-1 text-center'> PePeGa Nothing!</p>
+        )
+    }
     return (
         <>
             {FoodCard}
