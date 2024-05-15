@@ -13,19 +13,20 @@ export default function App(props) {
     Quantity: '',
     Location: '',
     Title: '',
-    Img: null,
+    Image: null,
     Zip: '',
     ExpDate: ''
   });
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
+  
   const handleChange = (e) => {
     const { id, value, files } = e.target;
-    setNewFood(prevState => ({
-      ...prevState,
-      [id]: id === 'ImageForm' ? files[0] : value
-    }));
+      setNewFood(prevState => ({
+        ...prevState,
+        [id]: id === 'Image' ?  URL.createObjectURL(files[0]) : value
+      }));
   };
 
   const handleSubmit = () => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Header } from './createHeader';
 import { Footer } from './createFooter';
 import { FoodInput} from './createFoodInput';
