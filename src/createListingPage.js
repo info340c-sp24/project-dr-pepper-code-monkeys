@@ -89,7 +89,7 @@ function UpdateDataThenRender({
         handleChange={handleChange}
         handleSubmit={handleSubmit}
       />
-      <FoodFilter FoodData={FoodData}/>
+      <FoodFilter />
       <FoodCard FoodData={FoodData}/>
 
     </>

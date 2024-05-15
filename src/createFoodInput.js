@@ -25,13 +25,17 @@ export function FoodInput({
             <Form>
               <Form.Group className="mb-3" controlId="Food">
                 <Form.Label>Food</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Ex: Banana"
-                  value={newFood.Food}
-                  onChange={handleChange}
-                  autoFocus
-                />
+                <Form.Control as='select' onChange={handleChange}>
+                                            <option value='Fruits'>Fruits</option>
+                                            <option value='Vegetables'>Vegetables</option>
+                                            <option value='Protein'>Protein</option>
+                                            <option value='Dairy'>Dairy</option>
+                                            <option value='Beverages'>Beverages</option>
+                                            <option value='Grains'>Grains</option>
+                                            <option value='Oil'>Oil</option>
+                                            <option value='Snacks'>Snacks</option>
+                                            <option value='Other'>Other</option>
+                </Form.Control>
               </Form.Group>
               <Form.Group className="mb-3" controlId="Title">
                 <Form.Label>Food Description</Form.Label>
@@ -43,7 +47,23 @@ export function FoodInput({
               </Form.Group>
               <Form.Group className='mb-3' controlId="Location">
                 <Form.Label>Neighborhood</Form.Label>
-                <Form.Control type="text" placeholder="Neighborhood" value={newFood.Location} onChange={handleChange} />
+                <Form.Control as='select' placeholder="Neighborhood"  onChange={handleChange}>
+                        <option value='Capital Hill'>Capitol Hill</option>
+                        <option value='Ballard'>Ballard</option>
+                        <option value='Fremont'>Fremont</option>
+                        <option value='South Lake Union'>South Lake Union</option>
+                        <option value='University District'>University District</option>
+                        <option value='Belltwon'>Belltown</option>
+                        <option value='Chinatown-International District'>Chinatown-International District</option>
+                        <option value='Columbia City'>Columbia City</option>
+                        <option value='Pioneer Square'>Pioneer Square</option>
+                        <option value='Queen Anne'>Queen Anne</option>
+                        <option value='Wallingford'>Wallingford</option>
+                        <option value='Westlake'>Westlake</option>
+                        <option value='Denny Triangle'>Denny Triangle</option>
+                        <option value='Beacon Hill'>Beacon Hill</option>
+                        <option value='Other'>Other</option>
+                </Form.Control>
               </Form.Group>
               <Form.Group className='mb-3' controlId="Zip">
                 <Form.Label>Zip</Form.Label>
@@ -56,7 +76,8 @@ export function FoodInput({
               <Form.Group className='mb-3' controlId='ImageForm'>
                 <Form.Label>Food Image</Form.Label>
                 <Form.Control type='file' size='sm' onChange={handleChange} />
-              </Form.Group>
+              </Form.Group> 
+
             </Form>
           </Modal.Body>
           <Modal.Footer>
