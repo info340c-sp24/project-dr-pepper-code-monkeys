@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavBar } from './createNavBar';
+import { NavBar } from './NavBar';
 
 
 //Creates header

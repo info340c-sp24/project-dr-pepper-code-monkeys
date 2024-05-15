@@ -17,8 +17,10 @@ function Cards({FoodData}){
                     <div className="card">
                         <img src={Food.Image} className="card-img-top" alt="Food item image"/>
                         <div className="card-body">
-                            <h2 className="card-title">{Food.Title}</h2>
-                            <h3 className="card-subtitle mb-2 text-muted">{Food.Location}, {Food.Zip}</h3>
+                            <h2 className="card-title text-center">{Food.Title}</h2>
+                            <h3 className="card-subtitle mb-1 text-muted">Quantity: {Food.Quantity}</h3>
+                            <h3 className="card-subtitle mb-1 text-muted">Expiration Date: {Food.ExpDate}</h3>
+                            <h3 className="card-subtitle mb-1 text-muted">Location: {Food.Location}, {Food.Zip}</h3>
                         </div>
                     </div>
                 </div>

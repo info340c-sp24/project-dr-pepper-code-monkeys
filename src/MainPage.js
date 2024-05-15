@@ -1,7 +1,7 @@
 import React from 'react';
-import { Header } from './createHeader';
-import { Footer } from './createFooter';
-import { Cards } from './createCard';
+import { Header } from './Header';
+import { Footer } from './Footer';
+import { Cards } from './MainPageCard';
 
 //These are information needed to creat main page cards. 
 let cardInfos = [

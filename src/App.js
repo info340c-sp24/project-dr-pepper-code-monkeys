@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
-import { MainPage } from './createMainPage';
-import { FoodMap } from './createMapPage';
-import { Listings } from './createListingPage';
-import { About } from './createAboutPage';
+import React, { useState, useEffect } from 'react';
+import { MainPage } from './MainPage';
+import { FoodMap } from './MapPage';
+import { Listings } from './ListingPage';
+import { About } from './AboutPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 export default function App(props) {
+  //This store current show state of food input form 
   const [show, setShow] = useState(false);
+  //This store current state of all input foods. 
   const [currentFoods, setCurrentFoods] = useState([]);
+  //This store state of newly added food
   const [newFood, setNewFood] = useState({
     Food: '',
     Quantity: '',
@@ -17,10 +20,15 @@ export default function App(props) {
     Zip: '',
     ExpDate: ''
   });
-
+  let filterValue='default';
+  const [filteredFood, setFilteredFood] = useState([]);
+  //This control showing of food input form
   const handleShow = () => setShow(true);
+  //This control closing of food input form 
   const handleClose = () => setShow(false);
   
+  //This control inputing data into newFood variable 
+  //from user input 
   const handleChange = (e) => {
     const { id, value, files } = e.target;
       setNewFood(prevState => ({
@@ -29,11 +37,28 @@ export default function App(props) {
       }));
   };
 
-  const handleSubmit = () => {
-    setCurrentFoods([...currentFoods, newFood]);
+  //This control updating new food into current food list once
+  //submit button in clicked. (Food input formn)
+  const HandleSubmit = (e) => {
+    setCurrentFoods([...currentFoods, newFood])
+    toFilter();
     handleClose();
   };
+  
+  const HandleFilter = (e) => {
+    filterValue=e.target.value;
+    toFilter();
+  };
 
+  function toFilter(){
+    debugger;
+    const filteredFood = filterValue !== 'Show All' && filterValue!=='default'
+      ? currentFoods.filter(food => food.Location === filterValue)
+      : currentFoods;
+      setFilteredFood(filteredFood);
+  }
+
+  
   return (
       <Routes>
         <Route path='*' element={<MainPage />} />
@@ -45,8 +70,9 @@ export default function App(props) {
             handleClose={handleClose}
             newFood={newFood}
             handleChange={handleChange}
-            handleSubmit={handleSubmit}
+            HandleSubmit={HandleSubmit}
             FoodData={currentFoods}
+            HandleFilter={HandleFilter}
           />
         } />
         <Route path="Map" element={<FoodMap />} /> 

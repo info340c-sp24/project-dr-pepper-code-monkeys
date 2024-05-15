@@ -1,27 +1,28 @@
 import React from 'react';
-export function FoodFilter(){
+export function FoodFilter({HandleFilter}){
             return ( 
                 <div className="mb-4">
                     <div className="row">
                         <div className="col-md-4">
                             <label htmlFor="neighborhoodDropdown" className="form-label">Neighborhood</label>
-                            <select class="form-select" id="neighborhoodDropdown">
-                                <option selected>Choose...</option>
-                                <option>Capitol Hill</option>
-                                <option>Ballard</option>
-                                <option>Fremont</option>
-                                <option>South Lake Union</option>
-                                <option>University District</option>
-                                <option>Belltown</option>
-                                <option>Chinatown-International District</option>
-                                <option>Columbia City</option>
-                                <option>Pioneer Square</option>
-                                <option>Queen Anne</option>
-                                <option>Wallingford</option>
-                                <option>Westlake</option>
-                                <option>Denny Triangle</option>
-                                <option>Beacon Hill</option>
-                    </select>
+                                <select className="form-select" id="neighborhoodDropdown" onChange={HandleFilter}>
+                                    <option>Choose...</option>
+                                    <option>Show All</option>
+                                    <option>Capitol Hill</option>
+                                    <option>Ballard</option>
+                                    <option>Fremont</option>
+                                    <option>South Lake Union</option>
+                                    <option>University District</option>
+                                    <option>Belltown</option>
+                                    <option>Chinatown-International District</option>
+                                    <option>Columbia City</option>
+                                    <option>Pioneer Square</option>
+                                    <option>Queen Anne</option>
+                                    <option>Wallingford</option>
+                                    <option>Westlake</option>
+                                    <option>Denny Triangle</option>
+                                    <option>Beacon Hill</option>
+                                </select>
                         </div>  
                         <div className="col-md-4">
                             <label htmlFor="zipCodeSearch" className="form-label">Zip Code</label>
@@ -29,8 +30,9 @@ export function FoodFilter(){
                         </div>
                         <div className="col-md-4">
                             <label htmlFor="foodTypeDropdown" className="form-label">Food Type</label>
-                            <select class="form-select" id="listingType" name="listingType" required>
-                                            <option selected>Choose...</option>
+                            <select className="form-select" id="listingType" name="listingType" required>
+                                            <option>Choose...</option>
+                                            <option>Show All</option>
                                             <option>Fruits</option>
                                             <option>Vegetables</option>
                                             <option>Protein</option>

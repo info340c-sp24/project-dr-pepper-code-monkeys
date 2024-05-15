@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import { Header } from './createHeader';
-import { Footer } from './createFooter';
+import { Header } from './Header';
+import { Footer } from './Footer';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 export function FoodMap(){
     return[<Head />,
