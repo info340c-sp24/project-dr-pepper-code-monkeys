@@ -21,7 +21,7 @@ export function Listings({show,
               handleClose={handleClose}
               newFood={newFood}
               handleChange={handleChange}
-              handleSubmit={handleSubmit} 
+              handleSubmit={handleSubmit}
               FoodData={FoodData}
         />,
         <Foot />
@@ -48,7 +48,11 @@ function Body({
 }){
     return (
         <main className="container">
-            <UpdateDataThenRender 
+            <div className="search-container ms-4">
+                <input type="text" className="search-input" placeholder="-"/>
+                <button type="button" className="search-button">Search</button>
+            </div>
+            <UpdateDataThenRender
             show={show}
             handleShow={handleShow}
             handleClose={handleClose}
@@ -61,9 +65,9 @@ function Body({
     )
 }
 
-//This function create main body of the page, it handles 
+//This function create main body of the page, it handles
 //food input and create each food card and filter. No content
-//will be generated before initial input. 
+//will be generated before initial input.
 function UpdateDataThenRender({
     show,
     handleShow,

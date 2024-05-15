@@ -9,10 +9,6 @@ export function Header(){
         <div className="">
             <img src="/img/logo.svg" alt="FFS logo" className="logo"/>
         </div>
-        <div className="search-container ms-4">
-          <input type="text" className="search-input" placeholder="-"/>
-          <button type="button" className="search-button">Search</button>
-        </div>
             <NavBar />
         <div>
           <p id="slogan">Linking Plates, Nourishing Lives.</p>
