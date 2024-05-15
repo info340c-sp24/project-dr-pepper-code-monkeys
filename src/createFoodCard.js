@@ -1,6 +1,5 @@
 import React from 'react';
-//Create card listing each food, requires object with 
-//{Img:'url',Title:'title',Location:'place',Zip:'zip'}
+
 export function FoodCard({FoodData}){
     return (
         <div className='row'>
