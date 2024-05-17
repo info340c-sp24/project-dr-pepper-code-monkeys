@@ -5,8 +5,7 @@ export function FoodFilter({HandleFilter}){
                     <div className="row">
                         <div className="col-md-4">
                             <label htmlFor="neighborhoodDropdown" className="form-label">Neighborhood</label>
-                                <select className="form-select" id="neighborhoodDropdown" onChange={HandleFilter}>
-                                    <option>Choose...</option>
+                                <select className="form-select" id="neighborhoodDropdown" onChange={event => {HandleFilter(event,'Location')}}>
                                     <option>Show All</option>
                                     <option>Capitol Hill</option>
                                     <option>Ballard</option>
@@ -30,8 +29,7 @@ export function FoodFilter({HandleFilter}){
                         </div>
                         <div className="col-md-4">
                             <label htmlFor="foodTypeDropdown" className="form-label">Food Type</label>
-                            <select className="form-select" id="listingType" name="listingType" required>
-                                            <option>Choose...</option>
+                            <select className="form-select" id="listingType" name="listingType" onChange={event => {HandleFilter(event,'Food')}}>
                                             <option>Show All</option>
                                             <option>Fruits</option>
                                             <option>Vegetables</option>

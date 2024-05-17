@@ -20,7 +20,7 @@ export default function App(props) {
     Zip: '',
     ExpDate: ''
   });
-  let filterValue='default';
+  const [filterValue,setFilterValue]=useState({Location:'Show All',Food:'Show All'});
   const [filteredFood, setFilteredFood] = useState([]);
   //This control showing of food input form
   const handleShow = () => setShow(true);
@@ -41,23 +41,32 @@ export default function App(props) {
   //submit button in clicked. (Food input formn)
   const HandleSubmit = (e) => {
     setCurrentFoods([...currentFoods, newFood])
-    toFilter();
     handleClose();
   };
   
-  const HandleFilter = (e) => {
-    filterValue=e.target.value;
+  useEffect(() => {
+    toFilter();
+  },[currentFoods,filterValue]);
+
+  const HandleFilter = (e,type) => {
+    debugger;
+    if(e){
+      setFilterValue({...filterValue,[type]:e.target.value})
+    }
     toFilter();
   };
 
+
   function toFilter(){
+    let filteredFood=currentFoods;
     debugger;
-    const filteredFood = filterValue !== 'Show All' && filterValue!=='default'
-      ? currentFoods.filter(food => food.Location === filterValue)
-      : currentFoods;
+    for(let key in filterValue){
+      if(filterValue[key]!=='Show All'){
+        filteredFood = filteredFood.filter(food => food[key]===filterValue[key])
+      }
+    }
       setFilteredFood(filteredFood);
   }
-
   
   return (
       <Routes>
@@ -71,7 +80,7 @@ export default function App(props) {
             newFood={newFood}
             handleChange={handleChange}
             HandleSubmit={HandleSubmit}
-            FoodData={currentFoods}
+            FoodData={filteredFood}
             HandleFilter={HandleFilter}
           />
         } />
