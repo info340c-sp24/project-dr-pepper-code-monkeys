@@ -53,7 +53,7 @@ export function FoodInput({
                   <option value='Fremont'>Fremont</option>
                   <option value='South Lake Union'>South Lake Union</option>
                   <option value='University District'>University District</option>
-                  <option value='Belltwon'>Belltown</option>
+                  <option value='Belltown'>Belltown</option>
                   <option value='Chinatown-International District'>Chinatown-International District</option>
                   <option value='Columbia City'>Columbia City</option>
                   <option value='Pioneer Square'>Pioneer Square</option>

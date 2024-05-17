@@ -49,7 +49,6 @@ export default function App(props) {
   },[currentFoods,filterValue]);
 
   const HandleFilter = (e,type) => {
-    debugger;
     if(e){
       setFilterValue({...filterValue,[type]:e.target.value})
     }
