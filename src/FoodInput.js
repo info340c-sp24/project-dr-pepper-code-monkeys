@@ -26,6 +26,7 @@ export function FoodInput({
               <Form.Group className="mb-3" controlId="Food">
                 <Form.Label>Food</Form.Label>
                 <Form.Control as='select' onChange={handleChange}>
+                  <option value='select'>Select...</option>
                   <option value='Fruits'>Fruits</option>
                   <option value='Vegetables'>Vegetables</option>
                   <option value='Protein'>Protein</option>
@@ -48,7 +49,8 @@ export function FoodInput({
               <Form.Group className='mb-3' controlId="Location">
                 <Form.Label>Neighborhood</Form.Label>
                 <Form.Control as='select' placeholder="Neighborhood"  onChange={handleChange}>
-                  <option value='Capital Hill'>Capitol Hill</option>
+                  <option value='select'>Select...</option>
+                  <option value='Capitol Hill'>Capitol Hill</option>
                   <option value='Ballard'>Ballard</option>
                   <option value='Fremont'>Fremont</option>
                   <option value='South Lake Union'>South Lake Union</option>

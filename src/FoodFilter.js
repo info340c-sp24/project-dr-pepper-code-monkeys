@@ -21,11 +21,12 @@ export function FoodFilter({HandleFilter}){
                                     <option>Westlake</option>
                                     <option>Denny Triangle</option>
                                     <option>Beacon Hill</option>
+                                    <option>Other</option>
                                 </select>
                         </div>  
                         <div className="col-md-4">
                             <label htmlFor="zipCodeSearch" className="form-label">Zip Code</label>
-                            <input type="text" className="form-control" id="zipCodeSearch" placeholder="Enter zip code"/>
+                            <input type="text" className="form-control" id="zipCodeSearch" placeholder="Enter zip code" onChange={event => {HandleFilter(event,'Zip')}}/>
                         </div>
                         <div className="col-md-4">
                             <label htmlFor="foodTypeDropdown" className="form-label">Food Type</label>
