@@ -14,7 +14,7 @@ export function FoodInput({
       <>
         <div className="d-flex justify-content-center">
           <Button className='btn btn-primary btn-lg' variant="primary" onClick={handleShow}>
-            +Create Food List
+            + Create Food List
           </Button>
         </div>
         <Modal show={show} onHide={handleClose}>
@@ -22,9 +22,9 @@ export function FoodInput({
             <Modal.Title>Add Food</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form>
+            <Form onSubmit={HandleSubmit}>
               <Form.Group className="mb-3" controlId="Food">
-                <Form.Label>Food</Form.Label>
+                <Form.Label>Food Type</Form.Label>
                 <Form.Control as='select' onChange={handleChange}>
                   <option value='select'>Select...</option>
                   <option value='Fruits'>Fruits</option>
@@ -39,8 +39,8 @@ export function FoodInput({
                 </Form.Control>
               </Form.Group>
               <Form.Group className="mb-3" controlId="Title">
-                <Form.Label>Food Description</Form.Label>
-                <Form.Control as="textarea" rows={3} value={newFood.Title} onChange={handleChange} />
+                <Form.Label>Listing Title</Form.Label>
+                <Form.Control as="textarea" rows={2} value={newFood.Title} onChange={handleChange} />
               </Form.Group>
               <Form.Group className='mb-3' controlId="Quantity">
                 <Form.Label>Quantity</Form.Label>

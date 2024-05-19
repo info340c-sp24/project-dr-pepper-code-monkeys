@@ -42,7 +42,17 @@ export default function App(props) {
   //This control updating new food into current food list once
   //submit button in clicked. (Food input formn)
   const HandleSubmit = (e) => {
-    setCurrentFoods([...currentFoods, newFood])
+    e.preventDefault();
+    setCurrentFoods([...currentFoods, newFood]);
+    setNewFood({
+      Food: '',
+      Quantity: '',
+      Location: '',
+      Title: '',
+      Image: null,
+      Zip: '',
+      ExpDate: ''
+    });
     handleClose();
   };
   
