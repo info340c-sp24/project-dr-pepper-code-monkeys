@@ -12,13 +12,13 @@ export function FoodMap(){
 
 
 const containerStyle = {
-  width: '400px',
-  height: '400px'
+  width: '100%',
+  height: '500px'
 };
 
 const center = {
-  lat: -3.745,
-  lng: -38.523
+  lat: 47.6062, // Seattle latitude
+  lng: -122.3321 // Seattle longitude
 };
 
 function MyComponent() {
@@ -55,10 +55,18 @@ function MyComponent() {
   ) : <></>
 }
 
-function Body(){
+const MapComponent = React.memo(MyComponent);
 
-    return <>React.memo(MyComponent)</>
+function Body() {
+  return (
+    <div id="mapMain">
+      <div id="map">
+        <MapComponent />
+      </div>
+    </div>
+  );
 }
+
 
 //create header
 function Head(){

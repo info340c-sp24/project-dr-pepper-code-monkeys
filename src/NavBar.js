@@ -8,7 +8,7 @@ export function NavBar(){
             <Link className="btn btn-outline-dark btn-lg mx-1" to='/MainPage'>Home</Link>
             <Link className="btn btn-outline-dark btn-lg mx-1" to='/About'>About</Link>
             <Link className="btn btn-outline-dark btn-lg mx-1" to='/Listings'>Listings</Link>
-            <Link className="btn btn-outline-dark btn-lg mx-1" to='/Map'>Search for Foods</Link>
+            <Link className="btn btn-outline-dark btn-lg mx-1" to='/Map'>Food and Donation Map</Link>
         </div>
     )
 };
