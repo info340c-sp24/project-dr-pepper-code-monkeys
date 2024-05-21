@@ -50,7 +50,7 @@ function Body({
     HandleFilter
 }){
     return (
-        <main className="container">
+        <main className="px-4 py-2">
             <div className="search-container ms-4">
                 <input type="text" className="search-input" placeholder="-"/>
                 <button type="button" className="search-button">Search</button>
