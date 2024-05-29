@@ -5,9 +5,9 @@ import { NavBar } from './NavBar';
 //Creates header
 export function Header(){
     return (
-        <header className="d-flex flex-row justify-content-between align-items-center container-fluid bg-light text-black py-3">
+        <header className="">
         <div className="">
-            <img src="/img/logo.svg" alt="FFS logo" className="logo"/>
+            <img src="/img/logo.svg" alt="FFS logo" className="logo m-3"/>
         </div>
             <NavBar />
         <div>

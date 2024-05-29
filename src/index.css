@@ -3,41 +3,41 @@ main {
     color: white;
   }
 
-.logo{
+.logo {
     top: 0;
     left: 0;
-    width: 120px;
-    height: auto;
-    margin-right: 3em;
-}
-
-#navbar {
-    margin: auto;
-}
-
-#navbar button, .search-button {
-    border: 1.5px solid black;
-    border-radius: 5%;
-    padding: .25em;
-    padding-left: .75em;
-    padding-right: .75em;
-    margin-left: 10px;
-    margin-right: 10px;
-    transition-duration: 0.4s;
-}
-
-#navbar button:hover {
-    background-color: #04AA6D;
-    color: white;
+    width: clamp(100px, 5vw, 100%); /* Look up clamp() if you haven't, super helpful */
 }
 
 header {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: flex-start;
-    align-items: center;
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .logo {
+      width: 100px;
+    }
+
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+/* Phone */
+@media (max-width: 767px) {
+    .logo {
+      width: 20vh;
+      left: 50%;
+      right: 50%;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 #slogan {
@@ -127,7 +127,7 @@ header {
 }
 
 .card-title, .modal-content, .card-subtitle, .form-label {
-    color: black; 
+    color: black;
 }
 
 .icon {
