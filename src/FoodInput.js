@@ -1,7 +1,7 @@
 import React from 'react';
-import { Modal, Button, Form } from 'react-bootstrap';  
+import { Modal, Button, Form } from 'react-bootstrap';
 
-//Create '+createList' input in listing. 
+//Create '+createList' input in listing.
 export function FoodInput({
     show,
     handleShow,
@@ -17,10 +17,12 @@ export function FoodInput({
             + Create Food List
           </Button>
         </div>
+
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Add Food</Modal.Title>
           </Modal.Header>
+
           <Modal.Body>
             <Form onSubmit={HandleSubmit}>
               <Form.Group className="mb-3" controlId="Food">
@@ -78,10 +80,10 @@ export function FoodInput({
               <Form.Group className='mb-3' controlId='Image'>
                 <Form.Label>Food Image</Form.Label>
                 <Form.Control type='file' size='sm' onChange={handleChange} />
-              </Form.Group> 
-
+              </Form.Group>
             </Form>
           </Modal.Body>
+
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Close
@@ -96,7 +98,7 @@ export function FoodInput({
   }
 
 
-/* Obsolete functions, no longer used. Left here for reference 
+/* Obsolete functions, no longer used. Left here for reference
 export function FoodOptions({FoodData}) {
 
     const Foods =  FoodData.map((Food, index) => (
@@ -130,6 +132,6 @@ export function NeighborhoodOptions({FoodData }) {
 
 
 
-  
- 
+
+
 

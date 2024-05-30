@@ -6,7 +6,8 @@ import { FoodFilter } from './FoodFilter';
 import { FoodCard } from './FoodCard';
 
 
-export function Listings({show,
+export function Listings({
+    show,
     handleShow,
     handleClose,
     newFood,
@@ -14,8 +15,7 @@ export function Listings({show,
     HandleSubmit,
     FoodData,
     HandleFilter
-})
-{
+}) {
     return [
         <Head />,
         <Body show={show}
@@ -48,7 +48,7 @@ function Body({
     HandleSubmit,
     FoodData,
     HandleFilter
-}){
+}) {
     return (
         <main className="px-4 py-2">
             <div className="search-container ms-4">
