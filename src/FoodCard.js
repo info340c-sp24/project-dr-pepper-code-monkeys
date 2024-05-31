@@ -1,9 +1,23 @@
 import React from 'react';
-
+import './index.css';
 export function FoodCard({FoodData}){
     return (
-        <div className='row'>
-            <Cards FoodData={FoodData}/>
+        <div className="tableList d-flex justify-content-center align-items-center min-height">
+            <div className=" table table-striped table-bordered">
+                <thead>
+                    <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Location, Zip Code</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Expiration Date</th>
+                    <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <Cards FoodData={FoodData}/>
+                </tbody>
+            </div>
         </div>
     )
 }
@@ -11,24 +25,23 @@ export function FoodCard({FoodData}){
 //Create card listing each food
 function Cards({FoodData}){
     let FoodCard
-    if(FoodData&&FoodData.length!==0){
-         FoodCard = FoodData.map((Food)=> (
-            <div className="col-lg-3 col-md-4 col-sm-6 col-6 py-3">
-                    <div className="card">
-                        <img src={Food.Image} className="card-img-top" alt="Food item image"/>
-                        <div className="card-body">
-                            <h2 className="card-title text-center">{Food.Title}</h2>
-                            <h3 className="card-subtitle mb-1 text-muted">Quantity: {Food.Quantity}</h3>
-                            <h3 className="card-subtitle mb-1 text-muted">Expiration Date: {Food.ExpDate}</h3>
-                            <h3 className="card-subtitle mb-1 text-muted">Location: {Food.Location}, {Food.Zip}</h3>
-                        </div>
-                    </div>
-                </div>
+    if(FoodData && FoodData.length!==0 ){
+        FoodCard = FoodData.map((Food)=> (
+            <tr>
+                <th scope="row">{Food.Title}</th>
+                <td>{Food.Food}</td>
+                <td>{`${Food.Location}, ${Food.Zip}`}</td>
+                <td>{Food.Quantity}</td>
+                <td>{Food.ExpDate}</td>
+                <td>{Food.Description}</td>
+            </tr>
             ))
     }
     else{
         return (
-            <p className='fs-1 text-center'> PePeGa Nothing!</p>
+            <tr>
+                <th colspan="6" class="table-warning">Nothing to see here, sorry!</th>
+            </tr>
         )
     }
     return (
