@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { MainPage } from './MainPage';
 import { FoodMap } from './MapPage';
 import { Listings } from './ListingPage';
 import { About } from './AboutPage';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// Import necessary Firebase functions
+import { Routes, Route } from 'react-router-dom';
+// Firebase functions
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set, push as firePush, onValue } from 'firebase/database';
 
@@ -12,12 +12,8 @@ import { getDatabase, ref, set, push as firePush, onValue } from 'firebase/datab
 const firebaseConfig = {
   databaseURL: "https://project340-44f30-default-rtdb.firebaseio.com/",
 };
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-// Get a reference to the database service
-const db = getDatabase(app);
+const app = initializeApp(firebaseConfig); // Initialize Firebase
+const db = getDatabase(app); // Get a reference to the database service
 const listingsRef = ref(db, "listings");
 
 export default function App() {
@@ -26,14 +22,12 @@ export default function App() {
   // This store current state of all input foods. Can add initial data via App's prop.
   const [currentFoods, setCurrentFoods] = useState([]);
 
-  console.log(currentFoods);
   // This store current state of newly added food
   const [newFood, setNewFood] = useState({
     Food: '',
     Quantity: '',
     Location: '',
     Title: '',
-    Image: null,
     Zip: '',
     ExpDate: ''
   });
@@ -42,9 +36,9 @@ export default function App() {
   const [filterValue, setFilterValue] = useState({ Location: 'Show All', Food: 'Show All', Zip: 'Show All' });
   // This store state of filtered food which will be shown as food cards.
   const [filteredFood, setFilteredFood] = useState([]);
-  // This control showing of food input form
+
+  // This control showing of food input form, Showing and closing
   const handleShow = () => setShow(true);
-  // This control closing of food input form
   const handleClose = () => setShow(false);
 
   // This control inputting data into newFood variable from user input
@@ -67,7 +61,6 @@ export default function App() {
       Quantity: '',
       Location: '',
       Title: '',
-      Image: null,
       Zip: '',
       ExpDate: ''
     });
@@ -75,9 +68,19 @@ export default function App() {
   };
 
   // This ensures that currentFoods and filterValue is updated before executing downstream codes.
+  const toFilter = useCallback(() => {
+    let filteredFood = currentFoods;
+    for (let key in filterValue) {
+      if (filterValue[key] !== 'Show All') {
+        filteredFood = filteredFood.filter(food => food[key] === filterValue[key]);
+      }
+    }
+    setFilteredFood(filteredFood);
+  }, [currentFoods, filterValue]);
+
   useEffect(() => {
     toFilter();
-  }, [currentFoods, filterValue]);
+  }, [currentFoods, filterValue, toFilter]);
 
   // This controls updating the current filter based on filter type (Location, Food type, Zip)
   // Note: Zip is set to Show All content if no value entered.
@@ -91,22 +94,12 @@ export default function App() {
     toFilter();
   };
 
-  // This performs filtering.
-  function toFilter() {
-    let filteredFood = currentFoods;
-    for (let key in filterValue) {
-      if (filterValue[key] !== 'Show All') {
-        filteredFood = filteredFood.filter(food => food[key] === filterValue[key]);
-      }
-    }
-    setFilteredFood(filteredFood);
-  }
-
-  // fetches data from firebase when app runs
-  useEffect(() => { // useEfect makes things run after
+  // Fetch data from Firebase when the component mounts
+  useEffect(() => {
     const fetchData = async () => {
       onValue(listingsRef, (dbCopy) => {
         const data = dbCopy.val();
+
         if (data) {
           const foodList = Object.values(data).map(item => item.newFood);
           setCurrentFoods(foodList);
@@ -118,23 +111,25 @@ export default function App() {
   }, []);
 
   return (
-    <Routes>
-      <Route path='*' element={<MainPage />} />
-      <Route path="About" element={<About />} />
-      <Route path="Listings" element={
-        <Listings
-          show={show}
-          handleShow={handleShow}
-          handleClose={handleClose}
-          newFood={newFood}
-          handleChange={handleChange}
-          HandleSubmit={HandleSubmit}
-          FoodData={filteredFood}
-          HandleFilter={HandleFilter}
-        />
-      } />
-      <Route path="Map" element={<FoodMap />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path='*' element={<MainPage />} />
+        <Route path="About" element={<About />} />
+        <Route path="Listings" element={
+          <Listings
+            show={show}
+            handleShow={handleShow}
+            handleClose={handleClose}
+            newFood={newFood}
+            handleChange={handleChange}
+            HandleSubmit={HandleSubmit}
+            FoodData={filteredFood}
+            HandleFilter={HandleFilter}
+          />
+        } />
+        <Route path="Map" element={<FoodMap />} />
+      </Routes>
+    </>
   );
 }
 

@@ -15,7 +15,6 @@ function Cards({FoodData}){
          FoodCard = FoodData.map((Food)=> (
             <div className="col-lg-3 col-md-4 col-sm-6 col-6 py-3">
                     <div className="card">
-                        <img src={Food.Image} className="card-img-top" alt="Food item image"/>
                         <div className="card-body">
                             <h2 className="card-title text-center">{Food.Title}</h2>
                             <h3 className="card-subtitle mb-1 text-muted">Quantity: {Food.Quantity}</h3>

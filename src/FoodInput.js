@@ -77,10 +77,6 @@ export function FoodInput({
                 <Form.Label>Expiration Date</Form.Label>
                 <Form.Control type='date' value={newFood.ExpDate} onChange={handleChange} />
               </Form.Group>
-              <Form.Group className='mb-3' controlId='Image'>
-                <Form.Label>Food Image</Form.Label>
-                <Form.Control type='file' size='sm' onChange={handleChange} />
-              </Form.Group>
             </Form>
           </Modal.Body>
 
