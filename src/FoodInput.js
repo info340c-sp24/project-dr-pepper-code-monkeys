@@ -25,6 +25,11 @@ export function FoodInput({
 
           <Modal.Body>
             <Form onSubmit={HandleSubmit}>
+            <Form.Group className="mb-3" controlId="Title">
+                <Form.Label>Title</Form.Label>
+                <Form.Control type="text" value={newFood.Title} onChange={handleChange} />
+              </Form.Group>
+
               <Form.Group className="mb-3" controlId="Food">
                 <Form.Label>Food Type</Form.Label>
                 <Form.Control as='select' onChange={handleChange}>
@@ -40,16 +45,14 @@ export function FoodInput({
                   <option value='Other'>Other</option>
                 </Form.Control>
               </Form.Group>
-              <Form.Group className="mb-3" controlId="Title">
-                <Form.Label>Listing Title</Form.Label>
-                <Form.Control as="textarea" rows={2} value={newFood.Title} onChange={handleChange} />
-              </Form.Group>
+
               <Form.Group className='mb-3' controlId="Quantity">
-                <Form.Label>Quantity</Form.Label>
+                <Form.Label>Quantity (Please Include units!)</Form.Label>
                 <Form.Control type="text" placeholder="Quantity" value={newFood.Quantity} onChange={handleChange} />
               </Form.Group>
+
               <Form.Group className='mb-3' controlId="Location">
-                <Form.Label>Neighborhood</Form.Label>
+                <Form.Label>District Located</Form.Label>
                 <Form.Control as='select' placeholder="Neighborhood"  onChange={handleChange}>
                   <option value='select'>Select...</option>
                   <option value='Capitol Hill'>Capitol Hill</option>
@@ -69,14 +72,22 @@ export function FoodInput({
                   <option value='Other'>Other</option>
                 </Form.Control>
               </Form.Group>
+
               <Form.Group className='mb-3' controlId="Zip">
-                <Form.Label>Zip</Form.Label>
+                <Form.Label>Zip Code</Form.Label>
                 <Form.Control type="text" placeholder="Zip" value={newFood.Zip} onChange={handleChange} />
               </Form.Group>
+
               <Form.Group className='mb-3' controlId="ExpDate">
                 <Form.Label>Expiration Date</Form.Label>
                 <Form.Control type='date' value={newFood.ExpDate} onChange={handleChange} />
               </Form.Group>
+
+              <Form.Group className='mb-3' controlId="Description">
+                <Form.Label>Desctiption</Form.Label>
+                <Form.Control as='textarea' rows="4" value={newFood.Description} onChange={handleChange} />
+              </Form.Group>
+
             </Form>
           </Modal.Body>
 

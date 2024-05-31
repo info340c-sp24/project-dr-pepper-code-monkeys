@@ -137,3 +137,11 @@ header {
 .Acard{
     width: 18rem;
 }
+
+.tableList {
+    min-width: 100vh; /* Ensure full viewport height for vertical centering */
+  }
+
+  .table {
+    max-width: max-content;
+  }
