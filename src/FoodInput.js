@@ -29,9 +29,6 @@ export function FoodInput({
           <Form noValidate onSubmit={HandleSubmit}>
             
             <Form.Group className="mb-3" controlId="Title">
-              
-              
-              
               <Form.Label>Title</Form.Label>
               <Form.Control type="text" value={newFood.Title} onChange={(e) => handleChange(e)} isInvalid={!!error.Title}/>
               <Form.Control.Feedback type='invalid'>{error.Title}</Form.Control.Feedback>
@@ -60,12 +57,36 @@ export function FoodInput({
               <Form.Control.Feedback type='invalid'>{error.ListingTitle}</Form.Control.Feedback>
             </Form.Group>
             
-            <Form.Group className='mb-3' controlId="Quantity">
-              <Form.Label>Quantity</Form.Label>
-              <Form.Control type="text" placeholder="Quantity" value={newFood.Quantity} onChange={(e) => handleChange(e)} isInvalid={!!error.Quantity} />
-              <Form.Control.Feedback type='invalid'>{error.Quantity}</Form.Control.Feedback>
-            </Form.Group>
+              <Form.Group className='mb-3' controlId="Quantity">
+                <Form.Label>Quantity</Form.Label>
+                <Form.Control type="text" placeholder="Quantity" value={newFood.Quantity} onChange={(e) => handleChange(e)} isInvalid={!!error.Quantity} />
+                <Form.Control.Feedback type='invalid'>{error.Quantity}</Form.Control.Feedback>
+              </Form.Group>
+        
+              
+              
+              <Form.Group className='mb-3' controlId='Unit'>
+                <Form.Label>Unit</Form.Label>
+                <Form.Control as='select' onChange={(e)=>handleChange(e)} value={newFood.Unit} placeholde='select' isInvalid={!!error.Unit}>
+                  <option value=''>Select...</option>
+                  <option value='lb'>lb</option>
+                  <option value='kg'>kg</option>
+                  <option value='g'>g</option>
+                  <option value='oz'>oz</option>
+                  <option value='fl oz'>fl oz</option>
+                  <option value='L'>L</option>
+                  <option value='gal'>gal</option>
+                  <option value='pack'>pack</option>
+                  <option value='bottle'>bottle</option>
+                  <option value='box'>box</option>
+                </Form.Control>
+                <Form.Control.Feedback type='invalid'>{error.Unit}</Form.Control.Feedback>
+              </Form.Group>
+              
+
             
+
+
             <Form.Group className='mb-3' controlId="Location">
               <Form.Label>Neighborhood</Form.Label>
               <Form.Control as='select' onChange={(e) => handleChange(e)} isInvalid={!!error.Location}>

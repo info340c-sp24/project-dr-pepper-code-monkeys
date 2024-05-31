@@ -31,9 +31,9 @@ function Cards({FoodData}){
                 <th scope="row">{Food.Title}</th>
                 <td>{Food.Food}</td>
                 <td>{`${Food.Location}, ${Food.Zip}`}</td>
-                <td>{Food.Quantity}</td>
+                <td>{`${Food.Quantity} ${Food.Unit}`}</td>
                 <td>{Food.ExpDate}</td>
-                <td>{Food.Description}</td>
+                <td>{Food.ListingTitle}</td>
             </tr>
             ))
     }
