@@ -11,7 +11,7 @@ export function FoodCard({FoodData}){
 //Create card listing each food
 function Cards({FoodData}){
     let FoodCard
-    if(FoodData&&FoodData.length!==0){
+    if(FoodData && FoodData.length!==0 ){
          FoodCard = FoodData.map((Food)=> (
             <div className="col-lg-3 col-md-4 col-sm-6 col-6 py-3">
                     <div className="card">

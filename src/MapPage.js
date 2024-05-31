@@ -3,13 +3,13 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 export function FoodMap(){
-    return[<Head />,
-           <Body />,
-           <Foot />
+    return[
+        <Head />,
+        <Body />,
+        <Foot />
     ]
 
 }
-
 
 const containerStyle = {
   width: '100%',
