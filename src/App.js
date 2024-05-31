@@ -4,28 +4,40 @@ import { FoodMap } from './MapPage';
 import { Listings } from './ListingPage';
 import { About } from './AboutPage';
 import { BrowserRouter as Routers, Routes, Route, NavLink } from 'react-router-dom';
+import { initializeApp } from 'firebase/app';
+import { getDatabase, ref, set, push as firePush, onValue } from 'firebase/database';
 
+  const firebaseConfig = {
+  databaseURL: "https://project340-44f30-default-rtdb.firebaseio.com/",
+  };
+  const app = initializeApp(firebaseConfig); // Initialize Firebase
+  const db = getDatabase(app); // Get a reference to the database service
+  const listingsRef = ref(db, "listings");
 export default function App(props) {
   //This store current show state of food input form
   const [show, setShow] = useState(false);
   // This store current state of all input foods. Can add initial data via App's prop.
   const [currentFoods, setCurrentFoods] = useState([]);
   
-
+  
   const [Error, setError]= useState({});
   //This store current state of newly added food
   const [newFood, setNewFood] = useState({
+    Title:'',
     Food: '',
     Quantity: '',
     Location: '',
-    Title: '',
+    ListingTitle: '',
     Zip: '',
     ExpDate: '',
   });
 
   const formValidation = ()=>{
-    const {Food,Quantity,Location,Title,Image,Zip,ExpDate} = newFood;
-    const newerrors={}
+    const {Title,Food,Quantity,Location,ListingTitle,Zip,ExpDate} = newFood;
+    const newerrors={};
+    if(!Title || Title===''){
+      newerrors.Title='Please enter Food Title'
+    }
     if(!Food || Food===''){
       newerrors.Food='Please select a food type';
     }
@@ -38,14 +50,11 @@ export default function App(props) {
     if(!Location || Location===''){
       newerrors.Location= 'Please select a neighborhood'
     }
-    if(!Title || Title===''){
-      newerrors.Title= 'Please type your description'
+    if(!ListingTitle || ListingTitle===''){
+      newerrors.ListingTitle= 'Please type your description'
     }
-    else if(Title.length>12){
-      newerrors.Title='Please enter no more than 12 characters'
-    }
-    if(!Image || Image===null){
-      newerrors.Image='Plesae upload food image'
+    else if(ListingTitle.length>12){
+      newerrors.ListingTitle='Please enter no more than 12 characters'
     }
     if(!Zip || Zip===''){
       newerrors.Zip='Please enter a zip'
@@ -89,30 +98,32 @@ export default function App(props) {
   // This control inputting data into newFood variable from user input
   const handleChange = (e) => {
     const { id, value, files } = e.target;
-      setNewFood(prevState => ({
+    setNewFood(prevState => ({
+      ...prevState,
+      [id]: id === 'Image' ?  URL.createObjectURL(files[0]) : value
+    }));
+    if (!!Error[id]) { 
+      setError(prevState => ({
         ...prevState,
-        [id]: id === 'Image' ?  URL.createObjectURL(files[0]) : value
+        [id]: null
       }));
-      if(!!Error[id]){
-        setError(prevState=>({
-          ...prevState,
-          [id]:null
-        }))
-      }
-  };
+    }
+};
+
 
   // This control updating new food into current food list once submit button is clicked. (Food input form)
   const HandleSubmit = (e) => {
-    console.log({ newFood });
-    addToDb({ newFood });
+    console.log('submitted')
     e.preventDefault();
     const errors= formValidation()
     if(Object.keys(errors).length>0){
+      console.log(errors)
       setError(errors)
     }
     else{
       setCurrentFoods([...currentFoods, newFood]);
       setNewFood('');
+      addToDb({ newFood });
       handleClose();
     }
   };
@@ -162,25 +173,25 @@ export default function App(props) {
 
   return (
     <>
-      <Routes>
-        <Route path='*' element={<MainPage />} />
-        <Route path="About" element={<About />} />
-        <Route path="Listings" element={
-          <Listings
-            show={show}
-            handleShow={handleShow}
-            handleClose={handleClose}
-            newFood={newFood}
-            handleChange={handleChange}
-            HandleSubmit={HandleSubmit}
-            FoodData={filteredFood}
-            HandleFilter={HandleFilter}
-            error={Error}
-          />
-        } />
-        <Route path="Map" element={<FoodMap />} />
-      </Routes>
-    </>
+    <Routes>
+      <Route path='*' element={<MainPage />} />
+      <Route path="About" element={<About />} />
+      <Route path="Listings" element={
+        <Listings
+          show={show}
+          handleShow={handleShow}
+          handleClose={handleClose}
+          newFood={newFood}
+          handleChange={handleChange}
+          HandleSubmit={HandleSubmit}
+          FoodData={filteredFood}
+          HandleFilter={HandleFilter}
+          error={Error}
+        />
+      } />
+      <Route path="Map" element={<FoodMap />} />
+    </Routes>
+  </>
   );
 }
 
