@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 
 //Create '+createList' input in listing.
@@ -7,9 +7,11 @@ export function FoodInput({
     handleShow,
     handleClose,
     newFood,
-    handleChange,
+    handleChange, 
     HandleSubmit,
+    error
   }) {
+
     return (
       <>
         <div className="d-flex justify-content-center">
@@ -19,16 +21,18 @@ export function FoodInput({
         </div>
 
         <Modal show={show} onHide={handleClose}>
+          
           <Modal.Header closeButton>
             <Modal.Title>Add Food</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
-            <Form onSubmit={HandleSubmit}>
+            <Form noValidate onSubmit={HandleSubmit}>
+              
               <Form.Group className="mb-3" controlId="Food">
                 <Form.Label>Food Type</Form.Label>
-                <Form.Control as='select' onChange={handleChange}>
-                  <option value='select'>Select...</option>
+                <Form.Control as='select' onChange={handleChange} isInvalid={!!error.Food}>
+                  <option value=''>Select...</option>
                   <option value='Fruits'>Fruits</option>
                   <option value='Vegetables'>Vegetables</option>
                   <option value='Protein'>Protein</option>
@@ -39,19 +43,25 @@ export function FoodInput({
                   <option value='Snacks'>Snacks</option>
                   <option value='Other'>Other</option>
                 </Form.Control>
+                <Form.Control.Feedback type='invalid'>{error.Food}</Form.Control.Feedback>
               </Form.Group>
+              
               <Form.Group className="mb-3" controlId="Title">
                 <Form.Label>Listing Title</Form.Label>
-                <Form.Control as="textarea" rows={2} value={newFood.Title} onChange={handleChange} />
+                <Form.Control as="textarea" rows={2} value={newFood.Title} onChange={handleChange} isInvalid={!!error.Title}/>
+                <Form.Control.Feedback type='invalid'>{error.Title}</Form.Control.Feedback>
               </Form.Group>
+              
               <Form.Group className='mb-3' controlId="Quantity">
                 <Form.Label>Quantity</Form.Label>
-                <Form.Control type="text" placeholder="Quantity" value={newFood.Quantity} onChange={handleChange} />
+                <Form.Control type="text" placeholder="Quantity" value={newFood.Quantity} onChange={handleChange} isInvalid={!!error.Quantity} />
+                <Form.Control.Feedback type='invalid'>{error.Quantity}</Form.Control.Feedback>
               </Form.Group>
+             
               <Form.Group className='mb-3' controlId="Location">
                 <Form.Label>Neighborhood</Form.Label>
-                <Form.Control as='select' placeholder="Neighborhood"  onChange={handleChange}>
-                  <option value='select'>Select...</option>
+                <Form.Control as='select' onChange={handleChange} isInvalid={!!error.Location}>
+                  <option value=''>Select...</option>
                   <option value='Capitol Hill'>Capitol Hill</option>
                   <option value='Ballard'>Ballard</option>
                   <option value='Fremont'>Fremont</option>
@@ -68,19 +78,30 @@ export function FoodInput({
                   <option value='Beacon Hill'>Beacon Hill</option>
                   <option value='Other'>Other</option>
                 </Form.Control>
+                <Form.Control.Feedback type='invalid'>{error.Location}</Form.Control.Feedback>
               </Form.Group>
+              
               <Form.Group className='mb-3' controlId="Zip">
                 <Form.Label>Zip</Form.Label>
-                <Form.Control type="text" placeholder="Zip" value={newFood.Zip} onChange={handleChange} />
+                <Form.Control required type="text" placeholder="Zip" value={newFood.Zip} onChange={handleChange} isInvalid={!!error.Zip} />
+                <Form.Control.Feedback type='invalid'>{error.Zip}</Form.Control.Feedback>
               </Form.Group>
+              
               <Form.Group className='mb-3' controlId="ExpDate">
                 <Form.Label>Expiration Date</Form.Label>
-                <Form.Control type='date' value={newFood.ExpDate} onChange={handleChange} />
+                <Form.Control required type='date' value={newFood.ExpDate} onChange={handleChange} isInvalid={!!error.ExpDate} />
+                <Form.Control.Feedback type='invalid'>{error.ExpDate}</Form.Control.Feedback>
               </Form.Group>
+              
               <Form.Group className='mb-3' controlId='Image'>
                 <Form.Label>Food Image</Form.Label>
-                <Form.Control type='file' size='sm' onChange={handleChange} />
+                <Form.Control required type='file' size='sm' onChange={handleChange} isInvalid={!!error.Image} />
+                <Form.Control.Feedback type='invalid'>{error.Image}</Form.Control.Feedback>
               </Form.Group>
+
+              <Button variant="primary" type='submit'>
+                Save Changes
+              </Button>
             </Form>
           </Modal.Body>
 
@@ -88,42 +109,8 @@ export function FoodInput({
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={HandleSubmit}>
-              Save Changes
-            </Button>
           </Modal.Footer>
         </Modal>
       </>
     );
   }
-
-
-/* Obsolete functions, no longer used. Left here for reference
-export function FoodOptions({FoodData}) {
-
-    const Foods =  FoodData.map((Food, index) => (
-                        <option key={index}>{Food.Food}</option>
-                    ))
-    return (
-        <>
-            <select className="form-select" id="foodTypeDropdown">
-            <option value="" defaultValue>Choose...</option>
-                {Foods}
-            </select>
-        </>
-    );
-}
-export function NeighborhoodOptions({FoodData }) {
-    const Place = FoodData.map((neighborhood, index) => (
-                    <option key={index}>{neighborhood.Location}</option>
-                  ))
-    return (
-        <>
-            <select className="form-select" id="neighborhoodDropdown">
-            <option value="" defaultValue>Choose...</option>
-                {Place}
-            </select>
-        </>
-    );
-}
-*/

@@ -14,7 +14,8 @@ export function Listings({
     handleChange,
     HandleSubmit,
     FoodData,
-    HandleFilter
+    HandleFilter,
+    error
 }) {
     return [
         <Head />,
@@ -26,6 +27,7 @@ export function Listings({
               HandleSubmit={HandleSubmit}
               FoodData={FoodData}
               HandleFilter={HandleFilter}
+              error={error}
         />,
         <Foot />
     ]
@@ -47,7 +49,8 @@ function Body({
     handleChange,
     HandleSubmit,
     FoodData,
-    HandleFilter
+    HandleFilter,
+    error
 }) {
     return (
         <main className="px-4 py-2">
@@ -62,6 +65,7 @@ function Body({
                 newFood={newFood}
                 handleChange={handleChange}
                 HandleSubmit={HandleSubmit}
+                error={error}
             />
             <FoodFilter HandleFilter={HandleFilter} />
             <FoodCard FoodData={FoodData}/>
