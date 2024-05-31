@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Header } from './Header';
 import { Footer } from './Footer';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 export function FoodMap(){
     return[
         <Head />,
@@ -21,6 +21,20 @@ const center = {
   lng: -122.3321 // Seattle longitude
 };
 
+const markerPositions = [
+  {
+    position: {lat: 47.6205, lng: -122.3493}, //Space Needle
+    title: 'Space Needle',
+    description: 'Test Space Needle'
+},
+{
+  position: {lat: 47.6097, lng: -122.3331}, //Pike Place
+  title: 'Pike Place Market',
+  description: 'test pike place'
+},
+];
+  
+
 function MyComponent() {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
@@ -28,6 +42,7 @@ function MyComponent() {
   })
 
   const [map, setMap] = React.useState(null)
+  const [selectedMarker, setSelectedMarker] = useState(null);
 
   const onLoad = React.useCallback(function callback(map) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
@@ -41,6 +56,15 @@ function MyComponent() {
     setMap(null)
   }, [])
 
+  const handleMarkerClick = (marker) => {
+    setSelectedMarker(marker);
+  };
+
+  const handleInfoWindowClick = () => {
+  setSelectedMarker(null);
+  };
+  
+
   return isLoaded ? (
       <GoogleMap
         mapContainerStyle={containerStyle}
@@ -49,7 +73,31 @@ function MyComponent() {
         onLoad={onLoad}
         onUnmount={onUnmount}
       >
-        { /* Child components, such as markers, info windows, etc. */ }
+        { /* Child components, such as markers, info windows, etc. */
+          markerPositions.map((marker, index) => (
+            <Marker key={index}
+            position={marker.position}
+            title={marker.title}
+            label={{
+              text: marker.title,
+              color: 'black',
+              fontSize: '14px',
+              fontWeight: 'bold'
+            }}
+            onClick={()=>handleMarkerClick(marker)}
+            />
+            
+          ))} 
+        {selectedMarker && (
+        <InfoWindow position={selectedMarker.position} onCloseClick={handleInfoWindowClick}>
+          <div>
+            <h2>{selectedMarker.title}</h2>
+            <p>{selectedMarker.description}</p>
+          </div>
+
+        </InfoWindow>)
+
+        }
         <></>
       </GoogleMap>
   ) : <></>
