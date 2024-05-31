@@ -18,8 +18,7 @@ export default function App(props) {
   const [show, setShow] = useState(false);
   // This store current state of all input foods. Can add initial data via App's prop.
   const [currentFoods, setCurrentFoods] = useState([]);
-  
-  
+  //This store the state of error from food input
   const [Error, setError]= useState({});
   //This store current state of newly added food
   const [newFood, setNewFood] = useState({
@@ -33,6 +32,9 @@ export default function App(props) {
     ExpDate: '',
   });
 
+  //This function validates all inputs from the form
+  //This first variable stores all input values, so please do modify this if more
+  //input is added to the form. 
   const formValidation = ()=>{
     const {Title,Food,Quantity,Unit,Location,ListingTitle,Zip,ExpDate} = newFood;
     const newerrors={};
@@ -99,7 +101,8 @@ export default function App(props) {
   //This control closing of food input form
   const handleClose = () => {setNewFood('');setError('');setShow(false)};
 
-  // This control inputting data into newFood variable from user input
+  // This control inputing data into newFood variable from user input
+  // and also reset previous error when user change input
   const handleChange = (e) => {
     const { id, value, files } = e.target;
     setNewFood(prevState => ({
@@ -116,8 +119,8 @@ export default function App(props) {
 
 
   // This control updating new food into current food list once submit button is clicked. (Food input form)
+  // And will validate each input, if there is an error, form will not be submitted and will not be closed. 
   const HandleSubmit = (e) => {
-    console.log('submitted')
     e.preventDefault();
     const errors= formValidation()
     if(Object.keys(errors).length>0){
@@ -132,7 +135,7 @@ export default function App(props) {
     }
   };
 
-  // This ensures that currentFoods and filterValue is updated before executing downstream codes.
+ 
   const toFilter = useCallback(() => {
     let filteredFood = currentFoods;
     for (let key in filterValue) {
@@ -143,6 +146,7 @@ export default function App(props) {
     setFilteredFood(filteredFood);
   }, [currentFoods, filterValue]);
 
+  // This ensures that currentFoods and filterValue is updated before executing downstream codes.
   useEffect(() => {
     toFilter();
   },[currentFoods,filterValue,]);
@@ -175,6 +179,7 @@ export default function App(props) {
     fetchData();
   }, []);
 
+  //User routing, MainPage is the defualt path.
   return (
     <>
     <Routes>
@@ -199,6 +204,7 @@ export default function App(props) {
   );
 }
 
+//Add fooddata into Db.
 function addToDb(foodToAdd) {
   console.log(listingsRef);
   const newFoodRef = firePush(listingsRef);

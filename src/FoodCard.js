@@ -14,7 +14,7 @@ export function FoodCard({FoodData}){
                     <th scope="col">Description</th>
                     </tr>
                 </thead>
-                <tbody class="">
+                <tbody className="">
                     <Cards FoodData={FoodData}/>
                 </tbody>
             </div>
@@ -26,8 +26,8 @@ export function FoodCard({FoodData}){
 function Cards({FoodData}){
     let FoodCard
     if(FoodData && FoodData.length!==0 ){
-        FoodCard = FoodData.map((Food)=> (
-            <tr>
+        FoodCard = FoodData.map((Food, index)=> (
+            <tr key={index}>
                 <th scope="row">{Food.Title}</th>
                 <td>{Food.Food}</td>
                 <td>{`${Food.Location}, ${Food.Zip}`}</td>
@@ -40,7 +40,7 @@ function Cards({FoodData}){
     else{
         return (
             <tr>
-                <th colspan="6" class="table-warning">Nothing to see here, sorry!</th>
+                <th colSpan="6" className="table-warning">Nothing to see here, sorry!</th>
             </tr>
         )
     }

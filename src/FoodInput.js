@@ -100,7 +100,7 @@ export function FoodInput({
             <Form.Group className='mb-3' controlId='Zip'>
               <Form.Label>Zip Code</Form.Label>
               <Form.Control type='text' placeholder='Zip Code' onChange={(e)=> handleChange(e)} isInvalid={!!error.Zip}/>
-              <Form.Control.Feedback>{error.Zip}</Form.Control.Feedback>
+              <Form.Control.Feedback type='invalid'>{error.Zip}</Form.Control.Feedback>
             </Form.Group>
             
             
