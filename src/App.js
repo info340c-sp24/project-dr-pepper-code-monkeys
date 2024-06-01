@@ -65,7 +65,7 @@ export default function App(props) {
     else if(ListingTitle.length>100){
       newerrors.ListingTitle='Please enter no more than 100 characters';
     }
-    if(!Zip || isNaN(Zip)){
+    if(!isValidZip(Zip)){
       newerrors.Zip='Please enter a valid zip';
     }
     if(!ExpDate || ExpDate===''){
@@ -122,7 +122,6 @@ export default function App(props) {
     e.preventDefault();
     const errors= formValidation()
     if(Object.keys(errors).length>0){
-      console.log(errors)
       setError(errors)
     }
     else{
@@ -168,8 +167,6 @@ export default function App(props) {
       onValue(listingsRef, (dbCopy) => {
         const data = dbCopy.val();
         if (data) {
-          debugger;
-          console.log(data)
           const foodList = Object.values(data).map(item => dayDiff(item.newFood.ExpDate)<0 ? '' : item.newFood );
           setCurrentFoods(foodList);
         }
@@ -221,4 +218,12 @@ function dayDiff(date){
   const expdate = new Date(date);
   const dayDiff= (expdate - today)/(1000*60*60*24);
   return dayDiff
+}
+
+
+//
+function isValidZip(zip){
+   const c = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zip);
+   console.log(c);
+   return c;
 }
