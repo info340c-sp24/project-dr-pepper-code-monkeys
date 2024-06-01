@@ -38,47 +38,45 @@ export default function App(props) {
   const formValidation = ()=>{
     const {Title,Food,Quantity,Unit,Location,ListingTitle,Zip,ExpDate} = newFood;
     const newerrors={};
-    if(!Title || Title===''){
+    if(!Title || Title.trim().length===0){
       newerrors.Title='Please enter Food Title';
     }
     else if(Title.length>15){
       newerrors.Title="Please enter no more than 15 characters"
     }
-    if(!Food || Food===''){
+    if(!Food){
       newerrors.Food='Please select a food type';
     }
-    if(!Quantity || Quantity ==='' || isNaN(Quantity)){
+    if(!Quantity || isNaN(Quantity)){
       newerrors.Quantity = 'Help, I need some nubmers, not just any nubmers!';
     }
     else if(Quantity<=0){
       newerrors.Quantity='Please enter number greater than zero';
     }
-    if(!Unit || Unit===''){
+    if(!Unit){
       newerrors.Unit='Please select a unit';
     }
-    if(!Location || Location===''){
+    if(!Location){
       newerrors.Location= 'Please select a neighborhood';
     }
-    if(!ListingTitle || ListingTitle===''){
+    if(!ListingTitle || ListingTitle.trim().length===0){
       newerrors.ListingTitle= 'Please type your description';
     }
     else if(ListingTitle.length>100){
       newerrors.ListingTitle='Please enter no more than 100 characters';
     }
-    if(!Zip || Zip===''){
-      newerrors.Zip='Please enter a zip';
+    if(!Zip || isNaN(Zip)){
+      newerrors.Zip='Please enter a valid zip';
     }
     if(!ExpDate || ExpDate===''){
       newerrors.ExpDate = 'Please enter an expiration date';
     }
     else{
-      const today = new Date();
-      const expdate = new Date(ExpDate);
-      const dateDiff= (expdate - today)/(1000*60*60*24);
-      if(dateDiff<0){
+      
+      if(dayDiff(ExpDate)<0){
         newerrors.ExpDate='Expiration date must be more than 1 day from today';
       }
-      else if(dateDiff>3652){
+      else if(dayDiff(ExpDate)>3652){
         newerrors.ExpDate='Plesae enter valid expiration date';
       }
     }
@@ -98,7 +96,7 @@ export default function App(props) {
 
   // This control showing of food input form, Showing and closing
   const handleShow = () => setShow(true);
-  //This control closing of food input form
+  //This control closing of food input form, clear previous error and input 
   const handleClose = () => {setNewFood('');setError('');setShow(false)};
 
   // This control inputing data into newFood variable from user input
@@ -135,7 +133,7 @@ export default function App(props) {
     }
   };
 
- 
+  //Filter display food based on filter value
   const toFilter = useCallback(() => {
     let filteredFood = currentFoods;
     for (let key in filterValue) {
@@ -164,13 +162,15 @@ export default function App(props) {
   };
 
   // Fetch data from Firebase when the component mounts
+  // Remove expired data entry
   useEffect(() => {
     const fetchData = async () => {
       onValue(listingsRef, (dbCopy) => {
         const data = dbCopy.val();
-
         if (data) {
-          const foodList = Object.values(data).map(item => item.newFood);
+          debugger;
+          console.log(data)
+          const foodList = Object.values(data).map(item => dayDiff(item.newFood.ExpDate)<0 ? '' : item.newFood );
           setCurrentFoods(foodList);
         }
       });
@@ -211,4 +211,14 @@ function addToDb(foodToAdd) {
   console.log(newFoodRef + listingsRef);
   set(newFoodRef, foodToAdd);
   console.log(newFoodRef + ' hi ' + listingsRef);
+}
+
+
+//Calculate difference between a given date to today's date
+//in days. expect (dd/mm/yyyy)
+function dayDiff(date){
+  const today = new Date();
+  const expdate = new Date(date);
+  const dayDiff= (expdate - today)/(1000*60*60*24);
+  return dayDiff
 }
