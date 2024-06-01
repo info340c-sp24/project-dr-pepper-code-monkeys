@@ -1,6 +1,6 @@
 main {
-    background-color: #04AA6D;
-    color: white;
+    background-color: #84f1b5;
+    color: black;
   }
 
 .logo {
@@ -144,4 +144,10 @@ header {
 
   .table {
     max-width: max-content;
+  }
+  .footerbackground{
+    background-image: linear-gradient(to bottom, #84f1b5,white);
+    background-size: contain;
+    background-repeat: no-repeat;
+
   }

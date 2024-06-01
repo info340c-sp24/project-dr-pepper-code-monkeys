@@ -37,7 +37,7 @@ function Body({cardInfo}){
         <div className="bg-white p-3">
             <IntroContent />
         </div>
-        <div className="container pb-5">
+        <div className="container">
                 <div className="row row-cols-1 cols-md-3 g-3">
                     {MainCard}
                 </div>

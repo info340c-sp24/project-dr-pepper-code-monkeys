@@ -203,11 +203,8 @@ export default function App(props) {
 
 //Add fooddata into Db.
 function addToDb(foodToAdd) {
-  console.log(listingsRef);
   const newFoodRef = firePush(listingsRef);
-  console.log(newFoodRef + listingsRef);
   set(newFoodRef, foodToAdd);
-  console.log(newFoodRef + ' hi ' + listingsRef);
 }
 
 
@@ -221,9 +218,10 @@ function dayDiff(date){
 }
 
 
-//
+//I found this on stack overflow, it validate if zip code 
+//follow a pattern #####-####. ture if it follows, false if not
+//Only US no Canada. 
+//To truly validate a zip code, will need to download USPS zip code database
 function isValidZip(zip){
-   const c = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zip);
-   console.log(c);
-   return c;
+   return /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zip);
 }

@@ -24,7 +24,7 @@ export function FoodCard({FoodData}){
 
 //Create card listing each food
 function Cards({FoodData}){
-    let FoodCard
+    let FoodCard;
     if(FoodData && FoodData.length!==0 ){
         FoodCard = FoodData.map((Food, index)=> (
             <tr key={index}>
