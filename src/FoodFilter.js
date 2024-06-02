@@ -7,20 +7,20 @@ export function FoodFilter({HandleFilter}) {
                     <label htmlFor="neighborhoodDropdown" className="form-label">Neighborhood</label>
                     <select className="form-select" id="neighborhoodDropdown" onChange={event => {HandleFilter(event,'Location')}}>
                         <option>Show All</option>
-                        <option>Capitol Hill</option>
                         <option>Ballard</option>
-                        <option>Fremont</option>
-                        <option>South Lake Union</option>
-                        <option>University District</option>
+                        <option>Beacon Hill</option>
                         <option>Belltown</option>
+                        <option>Capitol Hill</option>
                         <option>Chinatown-International District</option>
                         <option>Columbia City</option>
+                        <option>Denny Triangle</option>
+                        <option>Fremont</option>
                         <option>Pioneer Square</option>
                         <option>Queen Anne</option>
+                        <option>South Lake Union</option>
+                        <option>University District</option>
                         <option>Wallingford</option>
                         <option>Westlake</option>
-                        <option>Denny Triangle</option>
-                        <option>Beacon Hill</option>
                         <option>Other</option>
                     </select>
                 </div>

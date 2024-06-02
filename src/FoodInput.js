@@ -15,7 +15,7 @@ export function FoodInput({
     <>
       <div className="d-flex justify-content-center">
         <Button className='btn btn-primary btn-lg' variant="primary" onClick={handleShow}>
-          + Create Food List
+          + Create Food Listing
         </Button>
       </div>
 
@@ -52,7 +52,7 @@ export function FoodInput({
             </Form.Group>
             
             <Form.Group className="mb-3" controlId="ListingTitle">
-              <Form.Label>Listing Title</Form.Label>
+              <Form.Label>Description</Form.Label>
               <Form.Control as="textarea" rows={2} value={newFood.ListingTitle} onChange={(e) => handleChange(e)} isInvalid={!!error.ListingTitle} />
               <Form.Control.Feedback type='invalid'>{error.ListingTitle}</Form.Control.Feedback>
             </Form.Group>
@@ -91,8 +91,21 @@ export function FoodInput({
               <Form.Label>Neighborhood</Form.Label>
               <Form.Control as='select' onChange={(e) => handleChange(e)} isInvalid={!!error.Location}>
                 <option value=''>Select...</option>
+                <option value='Ballard'>Ballard</option>
+                <option value='Beacon Hill'>Beacon Hill</option>
+                <option value='Belltown'>Belltown</option>
                 <option value='Capitol Hill'>Capitol Hill</option>
-                {/* Other options */}
+                <option value='Chinatown-International District'>Chinatown-International District</option>
+                <option value='Columbia City'>Columbia City</option>
+                <option value='Denny Triangle'>Denny Triangle</option>
+                <option value='Fremont'>Fremont</option>
+                <option value='Pioneer Square'>Pioneer Square</option>
+                <option value='Queen Anne'>Queen Anne</option>
+                <option value='South Lake Union'>South Lake Union</option>
+                <option value='University District'>University District</option>
+                <option value='Wallingford'>Wallingford</option>
+                <option value='Westlake'>Westlake</option>
+                <option value='Other'>Other</option>
               </Form.Control>
               <Form.Control.Feedback type='invalid'>{error.Location}</Form.Control.Feedback>
             </Form.Group>
@@ -114,7 +127,7 @@ export function FoodInput({
             {/* Other Form Groups */}
             
             <Button variant="primary" type='submit'>
-              Save Changes
+              Post Listing
             </Button>
           </Form>
         </Modal.Body>
