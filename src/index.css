@@ -134,17 +134,40 @@ header {
     height:20px;
     width:auto;
 }
+
 .Acard{
     width: 18rem;
 }
 
-.tableList {
-    min-width: 100vh; /* Ensure full viewport height for vertical centering */
-  }
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
 
-  .table {
-    max-width: max-content;
-  }
+.table thead th {
+    position: sticky;
+    top: 0;
+    background-color: #fff; 
+    z-index: 10;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.title-column {
+    width: 350px; 
+    max-width: 350px; 
+    word-wrap: break-word; 
+}
+
   .footerbackground{
     background-image: linear-gradient(to bottom, #84f1b5,white);
     background-size: contain;

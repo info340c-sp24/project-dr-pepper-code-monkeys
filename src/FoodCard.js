@@ -2,11 +2,11 @@ import React from 'react';
 import './index.css';
 export function FoodCard({FoodData}){
     return (
-        <div className="tableList d-flex justify-content-center align-items-center min-height">
-            <div className=" table table-striped table-bordered">
+        <div className="table-container">
+            <table className="table table-striped table-bordered">
                 <thead>
                     <tr>
-                    <th scope="col">Title</th>
+                    <th scope="col" className="title-column">Title</th>
                     <th scope="col">Type</th>
                     <th scope="col">Location, Zip Code</th>
                     <th scope="col">Quantity</th>
@@ -17,7 +17,7 @@ export function FoodCard({FoodData}){
                 <tbody className="">
                     <Cards FoodData={FoodData}/>
                 </tbody>
-            </div>
+            </table>
         </div>
     )
 }
@@ -28,7 +28,7 @@ function Cards({FoodData}){
     if(FoodData && FoodData.length!==0 ){
         FoodCard = FoodData.map((Food, index)=> (
             <tr key={index}>
-                <th scope="row">{Food.Title}</th>
+                <td className="title-column">{Food.Title}</td>
                 <td>{Food.Food}</td>
                 <td>{`${Food.Location}, ${Food.Zip}`}</td>
                 <td>{`${Food.Quantity} ${Food.Unit}`}</td>
