@@ -1,5 +1,4 @@
 main {
-    background-color: #84f1b5;
     color: black;
   }
 
@@ -216,4 +215,29 @@ header {
     animation: 
       typing 3.5s steps(30, end) infinite alternate,
       blink-caret .75s step-end infinite;
+  }
+
+  @keyframes scrollBg {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-330px);
+    }
+  }
+  
+  .scroll-bg {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    padding-bottom: 330px;
+    background-color: #E8BA9B;
+    z-index: -1;
+    opacity: 25%;
+    background-image: url(../public/img/Foodbankimage.jpg);
+    background-size: cover;
+    animation: scrollBg 35s linear infinite;
+  }
+  .listingPage{
+    background-color: #84f1b5;
   }

@@ -3,14 +3,14 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import { Cards } from './MainPageCard';
 
-//These are information needed to creat main page cards.
+//These are information needed to create main page cards.
 let cardInfos = [
     {Img:'/img/giving.jpeg',Alt:'people giving food',Title:'Food Listing',Buttontext:'Go',Path:'Listings'},
     {Img:'/img/map.jpeg',Alt:'map of seattle',Title:'Find Food',Buttontext:'Go', Path:'Map'},
     {Img:'/img/mission.jpeg',Alt:'mission',Title:'Our Mission',Buttontext:'Go', Path:'About'}
 ];
 
-//This page creats the cover page.
+//This page creates the cover page.
 export function MainPage(){
     return[
         <Head key='head' />,
@@ -23,27 +23,28 @@ export function MainPage(){
 //Create Header
 function Head(){
     return (
-    <Header />
+        <Header />
     )
 }
 
-//Create main page cards it take a format listed above in cardInfos
-function Body({cardInfo}){
+//Create main page cards, it takes a format listed above in cardInfos
+function Body({ cardInfo }) {
     const MainCard = cardInfo.map((card, index) => (
-                        <Cards key={index} cardData={card} />
-                     ))
+        <Cards key={index} cardData={card} />
+    ));
     return (
-    <main>
-        <div className="bg-white p-3">
-            <IntroContent />
-        </div>
-        <div className="container">
-                <div className="row row-cols-1 cols-md-3 g-3">
-                    {MainCard}
+        <main>
+            <div className='scroll-bg'/>
+            <div className="content">
+                <IntroContent />
+                <div className="container">
+                    <div className="row row-cols-1 cols-md-3 g-3">
+                        {MainCard}
+                    </div>
                 </div>
-        </div>
-    </main>
-    )
+            </div>
+        </main>
+    );
 }
 
 // create about

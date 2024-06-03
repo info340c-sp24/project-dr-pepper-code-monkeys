@@ -20,6 +20,7 @@ function Head(){
 function Body(){
     return(
         <main>
+          <div className='scroll-bg'/>
       <section className="d-flex flex-row mb-3 pt-4">
         <div id="about-desc-box" className="justify-content-center ms-4 me-4">
           <h1 className="ms-4">About Us</h1>
