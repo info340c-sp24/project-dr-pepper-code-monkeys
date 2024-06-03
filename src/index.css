@@ -207,7 +207,7 @@ footer {
 
   @keyframes scrollBg {
     from {
-      transform: translateY(0px);
+      transform: translateY(-150px);
     }
     to {
       transform: translateY(-330px);
@@ -215,13 +215,13 @@ footer {
   }
 
   .scroll-bg {
-    height: 100%;
-    width: 100%;
+    height: 130%;
+    width: 130%;
     position: fixed;
     padding-bottom: 330px;
     background-color: #E8BA9B;
     z-index: -1;
-    opacity: 15%;
+    opacity: 10%;
     background-image: url(../public/img/Foodbankimage.jpg);
     background-size: cover;
     animation: scrollBg 35s linear infinite;
