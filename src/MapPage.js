@@ -13,7 +13,7 @@ export function FoodMap(){
 
 const containerStyle = {
   width: '100%',
-  height: '500px'
+  height: document.documentElement.clientHeight
 };
 
 const center = {
@@ -68,10 +68,6 @@ function MyComponent() {
   const [selectedMarker, setSelectedMarker] = useState(null);
 
   const onLoad = React.useCallback(function callback(map) {
-    // This is just an example of getting and using the map instance!!! don't just blindly copy!
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
-
     setMap(map)
   }, [])
 
@@ -117,7 +113,6 @@ function MyComponent() {
             <h2>{selectedMarker.title}</h2>
             <p>{selectedMarker.description}</p>
           </div>
-
         </InfoWindow>)
 
         }

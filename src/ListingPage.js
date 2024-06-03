@@ -15,7 +15,8 @@ export function Listings({
     HandleSubmit,
     FoodData,
     HandleFilter,
-    error
+    error,
+    filterValue
 }) {
     return [
         <Head />,
@@ -28,6 +29,7 @@ export function Listings({
               FoodData={FoodData}
               HandleFilter={HandleFilter}
               error={error}
+              filterValue={filterValue}
         />,
         <Foot />
     ]
@@ -50,7 +52,8 @@ function Body({
     HandleSubmit,
     FoodData,
     HandleFilter,
-    error
+    error,
+    filterValue
 }) {
     return (
         <main className="px-4 py-2">
@@ -67,7 +70,7 @@ function Body({
                 HandleSubmit={HandleSubmit}
                 error={error}
             />
-            <FoodFilter HandleFilter={HandleFilter} />
+            <FoodFilter HandleFilter={HandleFilter} filterValue={filterValue} />
             <FoodCard FoodData={FoodData}/>
         </main>
     )

@@ -1,11 +1,11 @@
 import React from 'react';
-export function FoodFilter({HandleFilter}) {
+export function FoodFilter({filterValue, HandleFilter}) {
     return (
         <div className="mb-4">
             <div className="row">
                 <div className="col-md-4">
                     <label htmlFor="neighborhoodDropdown" className="form-label">Neighborhood</label>
-                    <select className="form-select" id="neighborhoodDropdown" onChange={event => {HandleFilter(event,'Location')}}>
+                    <select value={filterValue.Location} className="form-select" id="neighborhoodDropdown" onChange={event => {HandleFilter(event,'Location')}}>
                         <option>Show All</option>
                         <option>Ballard</option>
                         <option>Beacon Hill</option>
@@ -32,9 +32,9 @@ export function FoodFilter({HandleFilter}) {
 
                 <div className="col-md-4">
                     <label htmlFor="foodTypeDropdown" className="form-label">Food Type</label>
-                    <select className="form-select" id="listingType" name="listingType" onChange={event => {HandleFilter(event,'Food')}}>
-                        <option>Show All</option>
-                        <option>Fruits</option>
+                    <select value={filterValue.Food} className="form-select" id="listingType" name="listingType" onChange={event => {HandleFilter(event,'Food')}}>
+                        <option value='Show All'>Show All</option>
+                        <option value='Fruits'>Fruits</option>
                         <option>Vegetables</option>
                         <option>Protein</option>
                         <option>Dairy</option>

@@ -47,7 +47,7 @@ export default function App(props) {
     if(!Food){
       newerrors.Food='Please select a food type';
     }
-    if(!Quantity || isNaN(Quantity)){
+    if(!Quantity || isNaN(Quantity) || Quantity.includes(".")){
       newerrors.Quantity = 'Help, I need some nubmers, not just any nubmers!';
     }
     else if(Quantity<=0){
@@ -77,7 +77,7 @@ export default function App(props) {
         newerrors.ExpDate='Expiration date must be more than 1 day from today';
       }
       else if(dayDiff(ExpDate)>3652){
-        newerrors.ExpDate='Plesae enter valid expiration date';
+        newerrors.ExpDate='Plesae enter a valid expiration date';
       }
     }
     return newerrors;
@@ -133,7 +133,7 @@ export default function App(props) {
   };
 
   //Filter display food based on filter value
-  const toFilter = useCallback(() => {
+  const toFilter = () => {
     let filteredFood = currentFoods;
     for (let key in filterValue) {
       if (filterValue[key] !== 'Show All') {
@@ -141,7 +141,7 @@ export default function App(props) {
       }
     }
     setFilteredFood(filteredFood);
-  }, [currentFoods, filterValue]);
+  };
 
   // This ensures that currentFoods and filterValue is updated before executing downstream codes.
   useEffect(() => {
@@ -193,6 +193,7 @@ export default function App(props) {
           FoodData={filteredFood}
           HandleFilter={HandleFilter}
           error={Error}
+          filterValue={filterValue}
         />
       } />
       <Route path="Map" element={<FoodMap />} />

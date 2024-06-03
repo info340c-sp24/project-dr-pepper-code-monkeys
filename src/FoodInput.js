@@ -30,7 +30,7 @@ export function FoodInput({
             
             <Form.Group className="mb-3" controlId="Title">
               <Form.Label>Title</Form.Label>
-              <Form.Control type="text" value={newFood.Title} onChange={(e) => handleChange(e)} isInvalid={!!error.Title}/>
+              <Form.Control type="text" value={newFood.Title} onChange={(e) => handleChange(e)} placeholder='Max 15 characters' isInvalid={!!error.Title}/>
               <Form.Control.Feedback type='invalid'>{error.Title}</Form.Control.Feedback>
             </Form.Group>
             
@@ -53,13 +53,13 @@ export function FoodInput({
             
             <Form.Group className="mb-3" controlId="ListingTitle">
               <Form.Label>Description</Form.Label>
-              <Form.Control as="textarea" rows={2} value={newFood.ListingTitle} onChange={(e) => handleChange(e)} isInvalid={!!error.ListingTitle} />
+              <Form.Control as="textarea" rows={2} value={newFood.ListingTitle} onChange={(e) => handleChange(e)} placeholder='Max 100 characters' isInvalid={!!error.ListingTitle} />
               <Form.Control.Feedback type='invalid'>{error.ListingTitle}</Form.Control.Feedback>
             </Form.Group>
             
               <Form.Group className='mb-3' controlId="Quantity">
                 <Form.Label>Quantity</Form.Label>
-                <Form.Control type="text" placeholder="Quantity" value={newFood.Quantity} onChange={(e) => handleChange(e)} isInvalid={!!error.Quantity} />
+                <Form.Control type="text" placeholder="Please enter positive whole number" value={newFood.Quantity} onChange={(e) => handleChange(e)} isInvalid={!!error.Quantity} />
                 <Form.Control.Feedback type='invalid'>{error.Quantity}</Form.Control.Feedback>
               </Form.Group>
         

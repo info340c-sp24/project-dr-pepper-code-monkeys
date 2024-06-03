@@ -174,3 +174,21 @@ header {
     background-repeat: no-repeat;
 
   }
+  
+  @keyframes header{
+    0%   {background-color: red;}
+    16%   {background-color: orange;}
+    32%  {background-color: yellow;}
+    48% {background-color: green;}
+    64%  {background-color: blue;}
+    80% {background-color: purple;}
+    100% {background-color: red;}
+    
+  }
+
+  .header{
+    animation-name: header;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
