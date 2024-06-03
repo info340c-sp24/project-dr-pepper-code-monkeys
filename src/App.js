@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MainPage } from './MainPage';
 import { FoodMap } from './MapPage';
 import { Listings } from './ListingPage';
 import { About } from './AboutPage';
-import { BrowserRouter as Routers, Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set, push as firePush, onValue } from 'firebase/database';
 
@@ -34,7 +34,7 @@ export default function App(props) {
 
   //This function validates all inputs from the form
   //This first variable stores all input values, so please do modify this if more
-  //input is added to the form. 
+  //input is added to the form.
   const formValidation = ()=>{
     const {Title,Food,Quantity,Unit,Location,ListingTitle,Zip,ExpDate} = newFood;
     const newerrors={};
@@ -72,7 +72,7 @@ export default function App(props) {
       newerrors.ExpDate = 'Please enter an expiration date';
     }
     else{
-      
+
       if(dayDiff(ExpDate)<0){
         newerrors.ExpDate='Expiration date must be more than 1 day from today';
       }
@@ -82,8 +82,8 @@ export default function App(props) {
     }
     return newerrors;
   }
- 
-                                  
+
+
 
 
 
@@ -96,7 +96,7 @@ export default function App(props) {
 
   // This control showing of food input form, Showing and closing
   const handleShow = () => setShow(true);
-  //This control closing of food input form, clear previous error and input 
+  //This control closing of food input form, clear previous error and input
   const handleClose = () => {setNewFood('');setError('');setShow(false)};
 
   // This control inputing data into newFood variable from user input
@@ -107,7 +107,7 @@ export default function App(props) {
       ...prevState,
       [id]: id === 'Image' ?  URL.createObjectURL(files[0]) : value
     }));
-    if (!!Error[id]) { 
+    if (!!Error[id]) {
       setError(prevState => ({
         ...prevState,
         [id]: null
@@ -117,7 +117,7 @@ export default function App(props) {
 
 
   // This control updating new food into current food list once submit button is clicked. (Food input form)
-  // And will validate each input, if there is an error, form will not be submitted and will not be closed. 
+  // And will validate each input, if there is an error, form will not be submitted and will not be closed.
   const HandleSubmit = (e) => {
     e.preventDefault();
     const errors= formValidation()
@@ -178,7 +178,6 @@ export default function App(props) {
 
   //User routing, MainPage is the defualt path.
   return (
-    <>
     <Routes>
       <Route path='*' element={<MainPage />} />
       <Route path="About" element={<About />} />
@@ -198,7 +197,6 @@ export default function App(props) {
       } />
       <Route path="Map" element={<FoodMap />} />
     </Routes>
-  </>
   );
 }
 
@@ -219,9 +217,9 @@ function dayDiff(date){
 }
 
 
-//I found this on stack overflow, it validate if zip code 
+//I found this on stack overflow, it validate if zip code
 //follow a pattern #####-####. ture if it follows, false if not
-//Only US no Canada. 
+//Only US no Canada.
 //To truly validate a zip code, will need to download USPS zip code database
 function isValidZip(zip){
    return /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zip);
