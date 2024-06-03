@@ -50,9 +50,10 @@ function Body({ cardInfo }) {
 // create about
 function IntroContent() {
     return (
-        <div>
-            <h2 className="fs-1 fw-bold text-dark">Why We Exist</h2>
-            <div>
+        <div className="p-3 rounded bg-light border border-black">
+            <h2 className="text-center fs-1 fw-bold text-dark">Welcome to Find Food Seattle</h2>
+            <h2 className="fs-3 fw-bold text-dark px-3">Why We Exist</h2>
+            <div className="px-3">
                 <p className="text-dark">
                 Many experts consider food insecurity to be a problem of distribution rather than
                 supply. This means that while there is enough food produced to feed everyone,
