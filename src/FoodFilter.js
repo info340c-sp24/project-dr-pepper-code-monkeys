@@ -1,5 +1,11 @@
 import React from 'react';
 export function FoodFilter({filterValue, HandleFilter}) {
+    let zipDisplay;
+    if (filterValue.Zip === 'Show All') {
+        zipDisplay = '';
+    } else {
+        zipDisplay = filterValue.Zip;
+    }
     return (
         <div className="mb-4">
             <div className="row">
@@ -27,7 +33,7 @@ export function FoodFilter({filterValue, HandleFilter}) {
 
                 <div className="col-md-4">
                     <label htmlFor="zipCodeSearch" className="form-label">Zip Code</label>
-                    <input type="text" className="form-control" id="zipCodeSearch" placeholder="Enter zip code" onChange={event => {HandleFilter(event,'Zip')}}/>
+                    <input value={zipDisplay} type="text" className="form-control" id="zipCodeSearch" onChange={event => {HandleFilter(event,'Zip')}}/>
                 </div>
 
                 <div className="col-md-4">

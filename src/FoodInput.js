@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{ useState, useEffect }from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 
 export function FoodInput({
@@ -10,7 +10,6 @@ export function FoodInput({
   HandleSubmit,
   error
 }) {
-
   return (
     <>
       <div className="d-flex justify-content-center">
