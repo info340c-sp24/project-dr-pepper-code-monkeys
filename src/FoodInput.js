@@ -34,6 +34,7 @@ export function FoodInput({
               <Form.Control.Feedback type='invalid'>{error.Title}</Form.Control.Feedback>
             </Form.Group>
             
+
             <Form.Group className="mb-3" controlId="Food">
               <Form.Label>Food Type</Form.Label>
               <Form.Control as='select' onChange={(e) => handleChange(e)} isInvalid={!!error.Food}>
@@ -51,20 +52,21 @@ export function FoodInput({
               <Form.Control.Feedback type='invalid'>{error.Food}</Form.Control.Feedback>
             </Form.Group>
             
+
             <Form.Group className="mb-3" controlId="ListingTitle">
               <Form.Label>Description</Form.Label>
               <Form.Control as="textarea" rows={2} value={newFood.ListingTitle} onChange={(e) => handleChange(e)} placeholder='Max 100 characters' isInvalid={!!error.ListingTitle} />
               <Form.Control.Feedback type='invalid'>{error.ListingTitle}</Form.Control.Feedback>
             </Form.Group>
             
+
               <Form.Group className='mb-3' controlId="Quantity">
                 <Form.Label>Quantity</Form.Label>
                 <Form.Control type="text" placeholder="Please enter positive whole number" value={newFood.Quantity} onChange={(e) => handleChange(e)} isInvalid={!!error.Quantity} />
                 <Form.Control.Feedback type='invalid'>{error.Quantity}</Form.Control.Feedback>
               </Form.Group>
-        
               
-              
+
               <Form.Group className='mb-3' controlId='Unit'>
                 <Form.Label>Unit</Form.Label>
                 <Form.Control as='select' onChange={(e)=>handleChange(e)} value={newFood.Unit} placeholde='select' isInvalid={!!error.Unit}>
@@ -83,9 +85,6 @@ export function FoodInput({
                 <Form.Control.Feedback type='invalid'>{error.Unit}</Form.Control.Feedback>
               </Form.Group>
               
-
-            
-
 
             <Form.Group className='mb-3' controlId="Location">
               <Form.Label>Neighborhood</Form.Label>
@@ -110,18 +109,25 @@ export function FoodInput({
               <Form.Control.Feedback type='invalid'>{error.Location}</Form.Control.Feedback>
             </Form.Group>
             
+
             <Form.Group className='mb-3' controlId='Zip'>
               <Form.Label>Zip Code</Form.Label>
               <Form.Control type='text' placeholder='Zip Code' onChange={(e)=> handleChange(e)} isInvalid={!!error.Zip}/>
               <Form.Control.Feedback type='invalid'>{error.Zip}</Form.Control.Feedback>
             </Form.Group>
             
-            
-            
+
             <Form.Group className='mb-3' controlId="ExpDate">
                 <Form.Label>Expiration Date</Form.Label>
                 <Form.Control type='date' value={newFood.ExpDate} onChange={handleChange} isInvalid={!!error.ExpDate} />
                 <Form.Control.Feedback type='invalid'>{error.ExpDate}</Form.Control.Feedback>
+            </Form.Group>
+
+
+            <Form.Group className='mb-3' controlId='ContactInfo'>
+              <Form.Label>Contact Information</Form.Label>
+              <Form.Control as="textarea" rows={2} placeholder="Name, Phone, Email" value={newFood.ContactInfo} onChange={(e) => handleChange(e)} isInvalid={!!error.ContactInfo} />
+              <Form.Control.Feedback type='invalid'>{error.ContactInfo}</Form.Control.Feedback>
             </Form.Group>
 
             {/* Other Form Groups */}

@@ -12,6 +12,7 @@ export function FoodCard({FoodData}){
                     <th scope="col">Quantity</th>
                     <th scope="col">Expiration Date</th>
                     <th scope="col">Description</th>
+                    <th scope="col">Contact Information</th>
                     </tr>
                 </thead>
                 <tbody className="">
@@ -34,6 +35,7 @@ function Cards({FoodData}){
                 <td>{`${Food.Quantity} ${Food.Unit}`}</td>
                 <td>{Food.ExpDate}</td>
                 <td>{Food.ListingTitle}</td>
+                <td>{Food.ContactInfo}</td>
             </tr>
             ))
     }
