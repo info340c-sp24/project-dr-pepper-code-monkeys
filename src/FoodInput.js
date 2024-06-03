@@ -1,4 +1,3 @@
-import React ,{ useState, useEffect }from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 
 export function FoodInput({
@@ -22,17 +21,17 @@ export function FoodInput({
         <Modal.Header closeButton>
           <Modal.Title>Add Food</Modal.Title>
         </Modal.Header>
-        
+
         <Modal.Body>
-          
+
           <Form noValidate onSubmit={HandleSubmit}>
-            
+
             <Form.Group className="mb-3" controlId="Title">
               <Form.Label>Title</Form.Label>
               <Form.Control type="text" value={newFood.Title} onChange={(e) => handleChange(e)} placeholder='Max 15 characters' isInvalid={!!error.Title}/>
               <Form.Control.Feedback type='invalid'>{error.Title}</Form.Control.Feedback>
             </Form.Group>
-            
+
 
             <Form.Group className="mb-3" controlId="Food">
               <Form.Label>Food Type</Form.Label>
@@ -50,21 +49,21 @@ export function FoodInput({
               </Form.Control>
               <Form.Control.Feedback type='invalid'>{error.Food}</Form.Control.Feedback>
             </Form.Group>
-            
+
 
             <Form.Group className="mb-3" controlId="ListingTitle">
               <Form.Label>Description</Form.Label>
               <Form.Control as="textarea" rows={2} value={newFood.ListingTitle} onChange={(e) => handleChange(e)} placeholder='Max 100 characters' isInvalid={!!error.ListingTitle} />
               <Form.Control.Feedback type='invalid'>{error.ListingTitle}</Form.Control.Feedback>
             </Form.Group>
-            
+
 
               <Form.Group className='mb-3' controlId="Quantity">
                 <Form.Label>Quantity</Form.Label>
                 <Form.Control type="text" placeholder="Please enter positive whole number" value={newFood.Quantity} onChange={(e) => handleChange(e)} isInvalid={!!error.Quantity} />
                 <Form.Control.Feedback type='invalid'>{error.Quantity}</Form.Control.Feedback>
               </Form.Group>
-              
+
 
               <Form.Group className='mb-3' controlId='Unit'>
                 <Form.Label>Unit</Form.Label>
@@ -83,7 +82,7 @@ export function FoodInput({
                 </Form.Control>
                 <Form.Control.Feedback type='invalid'>{error.Unit}</Form.Control.Feedback>
               </Form.Group>
-              
+
 
             <Form.Group className='mb-3' controlId="Location">
               <Form.Label>Neighborhood</Form.Label>
@@ -107,14 +106,14 @@ export function FoodInput({
               </Form.Control>
               <Form.Control.Feedback type='invalid'>{error.Location}</Form.Control.Feedback>
             </Form.Group>
-            
+
 
             <Form.Group className='mb-3' controlId='Zip'>
               <Form.Label>Zip Code</Form.Label>
               <Form.Control type='text' placeholder='Zip Code' onChange={(e)=> handleChange(e)} isInvalid={!!error.Zip}/>
               <Form.Control.Feedback type='invalid'>{error.Zip}</Form.Control.Feedback>
             </Form.Group>
-            
+
 
             <Form.Group className='mb-3' controlId="ExpDate">
                 <Form.Label>Expiration Date</Form.Label>
@@ -130,7 +129,7 @@ export function FoodInput({
             </Form.Group>
 
             {/* Other Form Groups */}
-            
+
             <Button variant="primary" type='submit'>
               Post Listing
             </Button>

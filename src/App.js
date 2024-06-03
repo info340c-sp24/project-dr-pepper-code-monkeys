@@ -32,9 +32,9 @@ export default function App(props) {
     ExpDate: '',
   });
 
-  //This function validates all inputs from the form
-  //This first variable stores all input values, so please do modify this if more
-  //input is added to the form.
+  // This function validates all inputs from the form
+  // This first variable stores all input values, so please do modify this if more
+  // input is added to the form.
   const formValidation = ()=>{
     const {Title,Food,Quantity,Unit,Location,ListingTitle,Zip,ExpDate} = newFood;
     const newerrors={};
@@ -116,8 +116,10 @@ export default function App(props) {
 };
 
 
-  // This control updating new food into current food list once submit button is clicked. (Food input form)
-  // And will validate each input, if there is an error, form will not be submitted and will not be closed.
+  // This control updating new food into current food list once submit button is clicked.
+  // (Food input form)
+  // And will validate each input, if there is an error, form will not be submitted and
+  // will not be closed.
   const HandleSubmit = (e) => {
     e.preventDefault();
     const errors= formValidation()

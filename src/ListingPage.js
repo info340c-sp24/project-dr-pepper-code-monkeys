@@ -56,11 +56,7 @@ function Body({
     filterValue
 }) {
     return (
-        <main className="px-4 py-2 listingPage">
-            <div className="search-container ms-4">
-                <input type="text" className="search-input" placeholder="-"/>
-                <button type="button" className="search-button">Search</button>
-            </div>
+        <main className="px-4 pb-2 pt-4 listingPage">
             <FoodInput
                 show={show}
                 handleShow={handleShow}

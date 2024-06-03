@@ -13,10 +13,10 @@ export function Footer() {
                         <div className="me-3">
                             <h3>Contact Us</h3>
                             <div id="social-links">
-                                <a href="#"><i className="fa fa-instagram mx-1" aria-label="instagram"></i></a>
-                                <a href="#"><i className="fa fa-twitter-square mx-1" aria-label="twitter"></i></a>
-                                <a href="#"><i className="fa fa-facebook-square mx-1" aria-label="facebook"></i></a>
-                                <a href="#"><i className="fa fa-github mx-1" aria-label="github"></i></a>
+                                <a href="#" className="fa fa-instagram mx-1 link-underline link-underline-opacity-0"></a>
+                                <a href="#" className="fa fa-twitter-square mx-1 link-underline link-underline-opacity-0" aria-label="twitter"></a>
+                                <a href="#" className="fa fa-facebook-square mx-1 link-underline link-underline-opacity-0" aria-label="facebook"></a>
+                                <a href="#" className="fa fa-github mx-1 link-underline link-underline-opacity-0" aria-label="github"></a>
                             </div>
                         </div>
                         <div>
