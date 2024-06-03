@@ -1,6 +1,6 @@
 import React from 'react';
-// Generic footer, change as needed
 import './index.css';
+
 export function Footer() {
     return (
         <footer className='pt-3 border-dark border-top border-1' >

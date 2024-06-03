@@ -1,17 +1,19 @@
 import React from 'react';
-export function FoodFilter({filterValue, HandleFilter}) {
+
+export function FoodFilter({filterValue, handleFilter}) {
     let zipDisplay;
     if (filterValue.Zip === 'Show All') {
         zipDisplay = '';
     } else {
         zipDisplay = filterValue.Zip;
     }
+
     return (
         <div className="mb-4">
             <div className="row">
                 <div className="col-md-4">
                     <label htmlFor="neighborhoodDropdown" className="form-label">Neighborhood</label>
-                    <select value={filterValue.Location} className="form-select" id="neighborhoodDropdown" onChange={event => {HandleFilter(event,'Location')}}>
+                    <select value={filterValue.Location} className="form-select" id="neighborhoodDropdown" onChange={event => {handleFilter(event,'Location')}}>
                         <option>Show All</option>
                         <option>Ballard</option>
                         <option>Beacon Hill</option>
@@ -33,12 +35,12 @@ export function FoodFilter({filterValue, HandleFilter}) {
 
                 <div className="col-md-4">
                     <label htmlFor="zipCodeSearch" className="form-label">Zip Code</label>
-                    <input value={zipDisplay} type="text" className="form-control" id="zipCodeSearch" onChange={event => {HandleFilter(event,'Zip')}}/>
+                    <input value={zipDisplay} type="text" className="form-control" id="zipCodeSearch" onChange={event => {handleFilter(event,'Zip')}}/>
                 </div>
 
                 <div className="col-md-4">
                     <label htmlFor="foodTypeDropdown" className="form-label">Food Type</label>
-                    <select value={filterValue.Food} className="form-select" id="listingType" name="listingType" onChange={event => {HandleFilter(event,'Food')}}>
+                    <select value={filterValue.Food} className="form-select" id="listingType" name="listingType" onChange={event => {handleFilter(event,'Food')}}>
                         <option value='Show All'>Show All</option>
                         <option value='Fruits'>Fruits</option>
                         <option>Vegetables</option>
@@ -53,5 +55,5 @@ export function FoodFilter({filterValue, HandleFilter}) {
                 </div>
             </div>
         </div>
-    )
+    );
 }

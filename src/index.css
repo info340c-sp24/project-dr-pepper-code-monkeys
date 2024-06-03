@@ -1,251 +1,245 @@
 main {
-    color: black;
-  }
-
-.logo {
-    top: 0;
-    left: 0;
-    width: clamp(100px, 5vw, 100%); /* Look up clamp() if you haven't, super helpful */
-    transition: transform 2s ease-in-out
-
+  color: black;
 }
 
-.logo :hover{
-    transform:rotate(360deg)
+.logo {
+  top: 0;
+  left: 0;
+  width: clamp(100px, 5vw, 100%); /* Look up clamp() if you haven't, super helpful */
+  transition: transform 2s ease-in-out;
+}
+
+.logo:hover {
+  transform: rotate(360deg);
 }
 
 header {
-    display: flex;
+  display: flex;
 }
 
 /* Desktop */
 @media (min-width: 1024px) {
-    .logo {
+  .logo {
       width: 100px;
-    }
+  }
 
-    header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
+  header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+  }
 }
 
 /* Phone */
 @media (max-width: 767px) {
-    .logo {
+  .logo {
       width: 20vh;
       left: 50%;
       right: 50%;
-    }
+  }
 
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
+  header {
+      flex-direction: column;
+      align-items: center;
+  }
 }
 
 .slogan {
-    font-style: italic;
-    font-weight: bold;
-    position: relative;
-    top: 0;
-    right: 0;
-    margin: 10px;
+  font-style: italic;
+  font-weight: bold;
+  position: relative;
+  top: 0;
+  right: 0;
+  margin: 10px;
 }
 
 .search-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 400px;
-    margin: 10px;
-    margin-right: auto;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  margin: 10px;
+  margin-right: auto;
+}
 
-  .search-input {
-    height: 2em;
-    padding: 10px;
-    border: 2px solid #ddd;
-    font-size: 16px;
-    width: 300px;
-    outline: none;
-  }
+.search-input {
+  height: 2em;
+  padding: 10px;
+  border: 2px solid #ddd;
+  font-size: 16px;
+  width: 300px;
+  outline: none;
+}
 
-  .search-button {
-    background-color: #049444;
-    color: white;
-    border: none;
-    font-size: 16px;
-    height: 2em;
-    outline: none;
-  }
+.search-button {
+  background-color: #049444;
+  color: white;
+  border: none;
+  font-size: 16px;
+  height: 2em;
+  outline: none;
+}
 
-  .search-button:hover {
-    background-color: rgb(44, 101, 47);
-  }
+.search-button:hover {
+  background-color: rgb(44, 101, 47);
+}
 
 .card {
-    transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .card:hover {
-    transform: scale(1.05)
+  transform: scale(1.05);
 }
 
 .card-img-top {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
 }
 
 .card-title {
-    font-size: 24px;
-    height: 60px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  font-size: 24px;
+  height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .card-subtitle {
-    font-size: 14px;
-    height: 40px;
-    color: #666;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  font-size: 14px;
+  height: 40px;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .card-body {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .form-label {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .form-select, .form-control {
-    margin-top: 5px;
+  margin-top: 5px;
 }
 
 .card-title, .modal-content, .card-subtitle, .form-label {
-    color: black;
+  color: black;
 }
 
 .icon {
-    height:20px;
-    width:auto;
+  height: 20px;
+  width: auto;
 }
 
-.about-card{
-    width: 18rem;
+.about-card {
+  width: 18rem;
 }
 
 .table-container {
-    width: 100%;
-    overflow-x: auto;
+  width: 100%;
+  overflow-x: auto;
 }
 
 .table thead th {
-    position: sticky;
-    top: 0;
-    background-color: #fff;
-    z-index: 10;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 10;
 }
 
 .table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .table th, .table td {
-    padding: 8px;
-    border: 1px solid #ddd;
-    text-align: left;
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
 }
 
 .title-column {
-    width: 350px;
-    max-width: 350px;
-    word-wrap: break-word;
+  width: 350px;
+  max-width: 350px;
+  word-wrap: break-word;
 }
 
 footer {
-    background-image: linear-gradient(to bottom, #84f1b5,white);
-    background-size: contain;
-    background-repeat: no-repeat;
-    border-top: 1px solid black;
+  background-image: linear-gradient(to bottom, #84f1b5, white);
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-top: 1px solid black;
+}
 
-  }
+.header {
+  background-color: #85F0B6;
+  border-bottom: 1px solid black;
+}
 
-  .header{
-    background-color: #85F0B6;
-    border-bottom: 1px solid black;
-  }
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: black; }
+}
 
-  @keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: black; }
-  }
-
-  .typewriter {
-    overflow: hidden;
-    border-right: .15em solid black;
-    white-space: nowrap;
-    animation:
+.typewriter {
+  overflow: hidden;
+  border-right: .15em solid black;
+  white-space: nowrap;
+  animation:
       typing 3.5s steps(30, end),
       blink-caret .75s step-end infinite;
-  }
+}
 
-  @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-  }
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
 
-  @keyframes scrollBg {
-    from {
+@keyframes scrollBg {
+  from {
       transform: translateY(-150px);
-    }
-    to {
+  }
+  to {
       transform: translateY(-330px);
-    }
   }
+}
 
-  .scroll-bg {
-    height: 130%;
-    width: 130%;
-    position: fixed;
-    padding-bottom: 330px;
-    background-color: #E8BA9B;
-    z-index: -1;
-    opacity: 10%;
-    background-image: url(../public/img/Foodbankimage.jpg);
-    background-size: cover;
-    animation: scrollBg 35s linear infinite;
-  }
-  .listingPage{
-    background-color: #84f1b5;
-  }
+.scroll-bg {
+  height: 130%;
+  width: 130%;
+  position: fixed;
+  padding-bottom: 330px;
+  background-color: #E8BA9B;
+  z-index: -1;
+  opacity: 10%;
+  background-image: url(../public/img/Foodbankimage.jpg);
+  background-size: cover;
+  animation: scrollBg 35s linear infinite;
+}
 
-  .copyright {
-    color: black;
-    font-size: 16px;
-    text-wrap: nowrap;
-  }
+.listingPage {
+  background-color: #84f1b5;
+}
 
-  .ballard-food-bank-img {
-    max-width: 400px;
-  }
+.copyright {
+  color: black;
+  font-size: 16px;
+  white-space: nowrap;
+}
 
-  #desc {
-    text-indent: 2em;
-  }
+.ballard-food-bank-img {
+  max-width: 400px;
+}
 
-
-/* about page */
+/* About page */
 .about-desc-box {
   animation: slideInFromLeft 1s ease-in-out forwards;
 }
@@ -272,4 +266,4 @@ footer {
   color: rgb(0, 59, 11);
   font-weight: bold;
 }
-/* about page end */
+/* About page end */

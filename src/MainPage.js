@@ -3,16 +3,14 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import { Cards } from './MainPageCard';
 
-//These are information needed to create main page cards.
 let cardInfos = [
     {Img:'/img/giving.jpeg',Alt:'people giving food',Title:'Food Listing',Buttontext:'Go',Path:'Listings'},
     {Img:'/img/map.jpeg',Alt:'map of seattle',Title:'Find Food',Buttontext:'Go', Path:'Map'},
     {Img:'/img/mission.jpeg',Alt:'mission',Title:'Our Mission',Buttontext:'Go', Path:'About'}
 ];
 
-//This page creates the cover page.
-export function MainPage(){
-    return[
+export function MainPage() {
+    return [
         <Head key='head' />,
         <Body key='body' cardInfo={cardInfos} />,
         <Foot key='foot' />
@@ -20,14 +18,12 @@ export function MainPage(){
 
 }
 
-//Create Header
-function Head(){
+function Head() {
     return (
         <Header />
-    )
+    );
 }
 
-//Create main page cards, it takes a format listed above in cardInfos
 function Body({ cardInfo }) {
     const MainCard = cardInfo.map((card, index) => (
         <Cards key={index} cardData={card} />
@@ -47,7 +43,6 @@ function Body({ cardInfo }) {
     );
 }
 
-// create about
 function IntroContent() {
     return (
         <div className="p-3 rounded bg-light border border-black">
@@ -55,15 +50,15 @@ function IntroContent() {
             <h2 className="fs-3 fw-bold text-dark px-3">Why We Exist</h2>
             <div className="px-3">
                 <p className="text-dark">
-                Many experts consider food insecurity to be a problem of distribution rather than
-                supply. This means that while there is enough food produced to feed everyone,
-                inefficiencies in how food is distributed lead to significant disparities. In
-                and around Seattle, we have witnessed both problems of food insecurity and food
-                waste that are inherent in the way households and institutions such as dining halls,
-                fraternities and sororities, and catered events manage leftover food. Despite the
-                abundance of food, these inefficiencies result in large quantities of edible food
-                being discarded, while many individuals and families struggle to find their
-                next meal.
+                    Many experts consider food insecurity to be a problem of distribution rather than
+                    supply. This means that while there is enough food produced to feed everyone,
+                    inefficiencies in how food is distributed lead to significant disparities. In
+                    and around Seattle, we have witnessed both problems of food insecurity and food
+                    waste that are inherent in the way households and institutions such as dining halls,
+                    fraternities and sororities, and catered events manage leftover food. Despite the
+                    abundance of food, these inefficiencies result in large quantities of edible food
+                    being discarded, while many individuals and families struggle to find their
+                    next meal.
                 </p>
                 <p className="text-dark">
                     <em>With Finding Food Seattle</em>, we plan to bridge this gap by making it
@@ -84,12 +79,11 @@ function IntroContent() {
                 </p>
             </div>
         </div>
-    )
+    );
 }
 
-//To create footer
-function Foot(){
+function Foot() {
     return (
         <Footer />
-    )
+    );
 }

@@ -12,9 +12,9 @@ export function Listings({
     handleClose,
     newFood,
     handleChange,
-    HandleSubmit,
+    handleSubmit,
     FoodData,
-    HandleFilter,
+    handleFilter,
     error,
     filterValue
 }) {
@@ -25,9 +25,9 @@ export function Listings({
               handleClose={handleClose}
               newFood={newFood}
               handleChange={handleChange}
-              HandleSubmit={HandleSubmit}
+              handleSubmit={handleSubmit}
               FoodData={FoodData}
-              HandleFilter={HandleFilter}
+              handleFilter={handleFilter}
               error={error}
               filterValue={filterValue}
         />,
@@ -41,7 +41,6 @@ function Head(){
     )
 }
 
-
 //Creates body
 function Body({
     show,
@@ -49,9 +48,9 @@ function Body({
     handleClose,
     newFood,
     handleChange,
-    HandleSubmit,
+    handleSubmit,
     FoodData,
-    HandleFilter,
+    handleFilter,
     error,
     filterValue
 }) {
@@ -63,17 +62,17 @@ function Body({
                 handleClose={handleClose}
                 newFood={newFood}
                 handleChange={handleChange}
-                HandleSubmit={HandleSubmit}
+                handleSubmit={handleSubmit}
                 error={error}
             />
-            <FoodFilter HandleFilter={HandleFilter} filterValue={filterValue} />
+            <FoodFilter handleFilter={handleFilter} filterValue={filterValue} />
             <FoodCard FoodData={FoodData}/>
         </main>
-    )
+    );
 }
 
 function Foot(){
     return (
         <Footer />
-    )
+    );
 }
