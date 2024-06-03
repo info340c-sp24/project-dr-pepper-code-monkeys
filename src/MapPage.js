@@ -158,10 +158,6 @@ function MyComponent() {
   const [selectedMarker, setSelectedMarker] = useState(null);
 
   const onLoad = React.useCallback(function callback(map) {
-<<<<<<< HEAD
-=======
-
->>>>>>> b0b78c149f55e2d2a956f094893bbaa30f14ebfa
     setMap(map)
   }, [])
 
