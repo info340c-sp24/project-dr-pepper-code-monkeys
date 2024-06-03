@@ -35,7 +35,7 @@ function Body({ cardInfo }) {
     return (
         <main>
             <div className='scroll-bg'/>
-            <div className="content">
+            <div className="content m-3">
                 <IntroContent />
                 <div className="container">
                     <div className="row row-cols-1 cols-md-3 g-3">

@@ -152,7 +152,7 @@ header {
 .table thead th {
     position: sticky;
     top: 0;
-    background-color: #fff; 
+    background-color: #fff;
     z-index: 10;
 }
 
@@ -168,53 +168,41 @@ header {
 }
 
 .title-column {
-    width: 350px; 
-    max-width: 350px; 
-    word-wrap: break-word; 
+    width: 350px;
+    max-width: 350px;
+    word-wrap: break-word;
 }
 
-  .footerbackground{
+footer {
     background-image: linear-gradient(to bottom, #84f1b5,white);
     background-size: contain;
     background-repeat: no-repeat;
+    border-top: 1px solid black;
 
-  }
-  
-  @keyframes header{
-    0%   {background-color: red;}
-    16%   {background-color: orange;}
-    32%  {background-color: yellow;}
-    48% {background-color: green;}
-    64%  {background-color: blue;}
-    80% {background-color: purple;}
-    100% {background-color: red;}
-    
   }
 
   .header{
-    animation-name: header;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
+    background-color: #85F0B6;
+    border-bottom: 1px solid black;
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: black; }
+  }
+
+  .typewriter {
+    overflow: hidden;
+    border-right: .15em solid black;
+    white-space: nowrap;
+    animation:
+      typing 3.5s steps(30, end),
+      blink-caret .75s step-end infinite;
   }
 
   @keyframes typing {
     from { width: 0; }
     to { width: 100%; }
-  }
-  
-  @keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: black; }
-  }
-  
-  .typewriter{
-    overflow: hidden;
-    border-right: .15em solid black; 
-    white-space: nowrap;
-    animation: 
-      typing 3.5s steps(30, end) infinite alternate,
-      blink-caret .75s step-end infinite;
   }
 
   @keyframes scrollBg {
@@ -225,7 +213,7 @@ header {
       transform: translateY(-330px);
     }
   }
-  
+
   .scroll-bg {
     height: 100%;
     width: 100%;
@@ -233,11 +221,17 @@ header {
     padding-bottom: 330px;
     background-color: #E8BA9B;
     z-index: -1;
-    opacity: 25%;
+    opacity: 15%;
     background-image: url(../public/img/Foodbankimage.jpg);
     background-size: cover;
     animation: scrollBg 35s linear infinite;
   }
   .listingPage{
     background-color: #84f1b5;
+  }
+
+  .copyright {
+    color: black;
+    font-size: 16px;
+    text-wrap: nowrap;
   }
