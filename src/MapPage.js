@@ -17,16 +17,11 @@ const containerStyle = {
 };
 
 const center = {
-  lat: 47.6062, // Seattle latitude
+  lat: 47.641, // Seattle latitude
   lng: -122.3321 // Seattle longitude
 };
 
 const markerPositions = [
-//   {
-//     position: {lat: 47.6205, lng: -122.3493}, //Space Needle
-//     title: 'Space Needle',
-//     description: 'Test Space Needle'
-// },
 {
   position: {lat: 47.747180975160994, lng: -122.34958247672098}, 
   title: 'World Concern - Food Distribution Center',
@@ -163,9 +158,6 @@ function MyComponent() {
   const [selectedMarker, setSelectedMarker] = useState(null);
 
   const onLoad = React.useCallback(function callback(map) {
-    // This is just an example of getting and using the map instance!!! don't just blindly copy!
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
 
     setMap(map)
   }, [])
