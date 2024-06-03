@@ -12,7 +12,7 @@ export function Header(){
         </div>
         <NavBar />
         <div >
-          <p id="slogan" className='typewriter'>Linking Plates, Nourishing Lives.</p>
+          <p className='slogan typewriter'>Linking Plates, Nourishing Lives.</p>
         </div>
       </header>
     )
