@@ -22,17 +22,40 @@ const center = {
 };
 
 const markerPositions = [
-  {
-    position: {lat: 47.6205, lng: -122.3493}, //Space Needle
-    title: 'Space Needle',
-    description: 'Test Space Needle'
-},
+//   {
+//     position: {lat: 47.6205, lng: -122.3493}, //Space Needle
+//     title: 'Space Needle',
+//     description: 'Test Space Needle'
+// },
 {
-  position: {lat: 47.6097, lng: -122.3331}, //Pike Place
-  title: 'Pike Place Market',
-  description: 'test pike place'
+  position: {lat: 47.747180975160994, lng: -122.34958247672098}, 
+  title: 'World Concern - Food Distribution Center',
+  description: 'Food Bank in Aurora Square'
 },
 ];
+
+// On Google Maps, search "Food shelters near Seattle"
+// All Food Shelters from that search below:
+// World Concern - Food Distribution Center 47.74879690933603, -122.34683589468891
+// Little Free Food Pantry Meridian 47.73263530987889, -122.33481959829862
+// Little Free Food Pantries 47.73840788563621, -122.29980067738978
+// Hunger Intervention Program / Community Meal / Lake City Community Center - Food Distribution Center 47.72247402238884, -122.28503779896192
+// Little free pantry 47.71600671625096, -122.28812770374797
+// Community House - Firwood - Food Distribution Center 47.71346576919371, -122.36022548208973
+// Lutheran Alliance To Create Housing - Food Distribution Center 47.67972873436003, -122.35335902700304
+// University District Food Bank 47.670250709973146, -122.31937007435623
+// Little Free Pantry, Fremont 47.65545230391543, -122.35507564077308
+// Noel House - Food Distribution Center 47.61534955343213, -122.34574518813447
+// Plymouth Housing Group - Food Distribution Center 47.61461312525099, -122.34307476381203
+// YWCA Angelines' Center - Food Distribution Center 47.613549377346075, -122.3408898711846
+// Little Free Food Pantry 47.61755877611995, -122.29233670168475
+// Little Food Pantry 47.60888499684442, -122.30665988668693
+// The Little Free Pantries 47.60544781841822, -122.30386807944073
+// OSL 47.60225713364114, -122.33596610394008
+// Bread of Life Mission - Food Distribution Center 47.60067417177291, -122.33514954021645
+// Little Free Pantry 47.58146834150404, -122.31126505130061
+// The Little Free Pantries 47.57320560124795, -122.28850333750499
+// The Little Free Pantries 47.56797185824302, -122.31596029271162
   
 
 function MyComponent() {
@@ -78,7 +101,7 @@ function MyComponent() {
             <Marker key={index}
             position={marker.position}
             title={marker.title}
-            label={{
+            label={{ // Adjust the text of the markers here, IT'S VERY UGLY RN
               text: marker.title,
               color: 'black',
               fontSize: '14px',
