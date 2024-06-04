@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-//Create the navigation Bar
 export function NavBar(){
     return (
         <div className="d-flex justify-content-center align-items-center flex-wrap">

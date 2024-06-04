@@ -24,7 +24,6 @@ export function FoodCard({ FoodData }) {
     );
 }
 
-//Create card listing each food
 function Cards({ FoodData }) {
     let foodCards;
     if (FoodData && FoodData.length !== 0 ) {

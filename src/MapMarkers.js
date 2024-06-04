@@ -2,8 +2,6 @@
 
 export function addMarker(marker){
   google.maps.importLibrary("marker").then(({ AdvancedMarkerElement, PinElement }) => {
-    // Add new position to markers array
-    // Clear existing markers and add new ones
     if (marker && marker.length !==0) {
       marker.forEach((mark) => {
         const pinScaled = new PinElement({

@@ -3,7 +3,6 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 
-// Returns food map react fragment
 export function FoodMap() {
   return (
     <>

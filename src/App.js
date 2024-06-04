@@ -7,7 +7,6 @@ import { Routes, Route } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set, push as firePush, onValue } from 'firebase/database';
 
-// Firebase configuration and initialization
 const firebaseConfig = {
   databaseURL: "https://project340-44f30-default-rtdb.firebaseio.com/",
 };
@@ -31,7 +30,6 @@ export default function App(props) {
     ExpDate: '',
   });
 
-  // Form validation
   const formValidation = useCallback(() => {
     const {Title, Food,Quantity, Unit, Location, ListingTitle, Zip, ExpDate } = newFood;
     const newErrors= {};
@@ -85,7 +83,6 @@ export default function App(props) {
     setShow(false);
   };
 
-  // Inputs data into "newFood" from user input and resets previous error when user changes input
   const handleChange = (e) => {
     const { id, value, files } = e.target;
     setNewFood(prevState => ({
@@ -100,8 +97,6 @@ export default function App(props) {
     }
   };
 
-  // Updates new food into current food list once submit button is clicked.
-  // Validates each input, if there is an error, form will not be submitted and will not be closed.
   const handleSubmit = (e) => {
     e.preventDefault();
     const errors = formValidation();
@@ -115,7 +110,6 @@ export default function App(props) {
     }
   };
 
-  // Filter food based on filter values
   const toFilter = useCallback(() => {
     let filteredFood = currentFoods;
     for (let key in filterValue) {
@@ -126,12 +120,10 @@ export default function App(props) {
     setFilteredFood(filteredFood);
   }, [currentFoods, filterValue]);
 
-  // Re-filter food list when currentFoods or filterValue changes
   useEffect(() => {
     toFilter();
   }, [currentFoods, filterValue, toFilter]);
 
-  // Controls updating the current filter based on filter type (Zip is set to Show All content if no value entered.)
   const handleFilter = (e, type) => {
     if (e) {
       setFilterValue({ ...filterValue, [type]: e.target.value });
@@ -142,7 +134,7 @@ export default function App(props) {
     toFilter();
   };
 
-  // Fetch data from Firebase on component mount. Removes expired data entry.
+  // Fetch data from Firebase on component mount; removes expired data entry.
   useEffect(() => {
     const fetchData = async () => {
       onValue(listingsRef, (dbCopy) => {
@@ -157,7 +149,6 @@ export default function App(props) {
     fetchData();
   }, []);
 
-  // User routing, MainPage is the default path.
   return (
     <Routes>
       <Route path='*' element={<MainPage />} />
@@ -187,7 +178,6 @@ function addToDb(foodToAdd) {
   set(newFoodRef, foodToAdd);
 }
 
-// Calculate the difference in days between a given date and today's date
 function dayDiff(date) {
   const today = new Date();
   const expdate = new Date(date);
