@@ -25,7 +25,7 @@ function Body() {
       <div className='scroll-bg'/>
       <section className="d-flex flex-row mb-3 pt-4">
         <div className="about-desc-box justify-content-center ms-4 me-4">
-          <h1 className="ms-4">About Us</h1>
+          <h1>About Us</h1>
           <p className=" desc fs-5">
             Find Food Seattle was created with the goal of increasing access to government and private
             programs and events providing free or subsidized food, as well as serving as a space to
