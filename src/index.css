@@ -18,6 +18,7 @@ main {
 /* Header styles */
 header {
   display: flex;
+  width: 100%;
 }
 
 /* Desktop */
@@ -220,8 +221,8 @@ footer {
 }
 
 .scroll-bg {
-  height: 130%;
-  width: 130%;
+  height: 100%;
+  width: 100%;
   position: fixed;
   padding-bottom: 330px;
   background-color: #E8BA9B;
