@@ -1,11 +1,13 @@
+/* Global styles */
 main {
   color: black;
 }
 
+/* Logo styles */
 .logo {
   top: 0;
   left: 0;
-  width: clamp(100px, 5vw, 100%); /* Look up clamp() if you haven't, super helpful */
+  width: clamp(100px, 5vw, 100%);
   transition: transform 2s ease-in-out;
 }
 
@@ -13,6 +15,7 @@ main {
   transform: rotate(360deg);
 }
 
+/* Header styles */
 header {
   display: flex;
 }
@@ -20,30 +23,31 @@ header {
 /* Desktop */
 @media (min-width: 1024px) {
   .logo {
-      width: 100px;
+    width: 100px;
   }
 
   header {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
 /* Phone */
 @media (max-width: 767px) {
   .logo {
-      width: 20vh;
-      left: 50%;
-      right: 50%;
+    width: 20vh;
+    left: 50%;
+    right: 50%;
   }
 
   header {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
+/* Slogan styles */
 .slogan {
   font-style: italic;
   font-weight: bold;
@@ -53,6 +57,7 @@ header {
   margin: 10px;
 }
 
+/* Search container styles */
 .search-container {
   display: flex;
   justify-content: center;
@@ -84,6 +89,7 @@ header {
   background-color: rgb(44, 101, 47);
 }
 
+/* Card styles */
 .card {
   transition: all 0.3s;
 }
@@ -122,16 +128,13 @@ header {
   justify-content: space-between;
 }
 
+/* Form styles */
 .form-label {
   font-weight: bold;
 }
 
 .form-select, .form-control {
   margin-top: 5px;
-}
-
-.card-title, .modal-content, .card-subtitle, .form-label {
-  color: black;
 }
 
 .icon {
@@ -143,6 +146,7 @@ header {
   width: 18rem;
 }
 
+/* Table styles */
 .table-container {
   width: 100%;
   overflow-x: auto;
@@ -172,6 +176,7 @@ header {
   word-wrap: break-word;
 }
 
+/* Footer styles */
 footer {
   background-image: linear-gradient(to bottom, #84f1b5, white);
   background-size: contain;
@@ -184,6 +189,7 @@ footer {
   border-bottom: 1px solid black;
 }
 
+/* Typewriter effect */
 @keyframes blink-caret {
   from, to { border-color: transparent; }
   50% { border-color: black; }
@@ -194,8 +200,8 @@ footer {
   border-right: .15em solid black;
   white-space: nowrap;
   animation:
-      typing 3.5s steps(30, end),
-      blink-caret .75s step-end infinite;
+    typing 3.5s steps(30, end),
+    blink-caret .75s step-end infinite;
 }
 
 @keyframes typing {
@@ -203,12 +209,13 @@ footer {
   to { width: 100%; }
 }
 
+/* Scroll background animation */
 @keyframes scrollBg {
   from {
-      transform: translateY(-150px);
+    transform: translateY(-150px);
   }
   to {
-      transform: translateY(-330px);
+    transform: translateY(-330px);
   }
 }
 
@@ -225,6 +232,7 @@ footer {
   animation: scrollBg 35s linear infinite;
 }
 
+/* Listing page styles */
 .listingPage {
   background-color: #84f1b5;
 }
@@ -246,12 +254,12 @@ footer {
 
 @keyframes slideInFromLeft {
   0% {
-      opacity: 0;
-      transform: translateX(-100px);
+    opacity: 0;
+    transform: translateX(-100px);
   }
   100% {
-      opacity: 1;
-      transform: translateX(0);
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -266,4 +274,3 @@ footer {
   color: rgb(0, 59, 11);
   font-weight: bold;
 }
-/* About page end */
