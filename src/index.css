@@ -49,6 +49,14 @@ header {
     flex-direction: column;
     align-items: center;
   }
+
+  .ballard-food-bank-img {
+    display: none;
+  }
+
+  .ballard-cap {
+    display: none;
+  }
 }
 
 /* Slogan styles */
