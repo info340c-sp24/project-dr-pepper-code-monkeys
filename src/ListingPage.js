@@ -19,8 +19,9 @@ export function Listings({
     filterValue
 }) {
     return [
-        <Head />,
-        <Body show={show}
+        <Head key='head'/>,
+        <Body key='Body'
+              show={show}
               handleShow={handleShow}
               handleClose={handleClose}
               newFood={newFood}
@@ -31,7 +32,7 @@ export function Listings({
               error={error}
               filterValue={filterValue}
         />,
-        <Foot />
+        <Foot key='Foot'/>
     ]
 }
 
