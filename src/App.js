@@ -11,8 +11,8 @@ const firebaseConfig = {
   databaseURL: "https://project340-44f30-default-rtdb.firebaseio.com/",
 };
 
-const app = initializeApp(firebaseConfig); 
-const db = getDatabase(app); 
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
 const listingsRef = ref(db, "listings");
 
 export default function App(props) {
@@ -81,7 +81,7 @@ export default function App(props) {
   const [filteredFood, setFilteredFood] = useState([]);
 
   const handleShow = () => setShow(true);
-  const handleClose = () => { 
+  const handleClose = () => {
     setNewFood('');
     setError('');
     setShow(false);
@@ -107,10 +107,14 @@ export default function App(props) {
     if (Object.keys(errors).length > 0) {
       setError(errors);
     } else {
-      setCurrentFoods([...currentFoods, newFood]);
-      setNewFood('');
-      addToDb({ newFood });
-      handleClose();
+      try {
+        addToDb({ newFood });
+        setCurrentFoods([...currentFoods, newFood]);
+        setNewFood('');
+        handleClose();
+      } catch (error) {
+        console.error("Error during form submission: ", error);
+      }
     }
   };
 
@@ -141,17 +145,22 @@ export default function App(props) {
   // Fetch data from Firebase on component mount; removes expired data entry.
   useEffect(() => {
     const fetchData = async () => {
-      onValue(listingsRef, (dbCopy) => {
-        const data = dbCopy.val();
-        if (data) {
-          const foodList = Object.values(data).map(item => dayDiff(item.newFood.ExpDate) < 0 ? '' : item.newFood );
-          setCurrentFoods(foodList);
-        }
-      });
+      try {
+        onValue(listingsRef, (dbCopy) => {
+          const data = dbCopy.val();
+          if (data) {
+            const foodList = Object.values(data).map(item => dayDiff(item.newFood.ExpDate) < 0 ? '' : item.newFood );
+            setCurrentFoods(foodList);
+          }
+        });
+      } catch (error) {
+        console.error("Error: ", error);
+      }
     };
 
     fetchData();
   }, []);
+
 
   return (
     <Routes>
@@ -179,8 +188,12 @@ export default function App(props) {
 // Add new food data to Firebase
 function addToDb(foodToAdd) {
   const newFoodRef = firePush(listingsRef);
-  set(newFoodRef, foodToAdd);
+  set(newFoodRef, foodToAdd)
+    .catch((error) => {
+    console.error("Error adding food item to database: ", error);
+  });
 }
+
 
 function dayDiff(date) {
   const today = new Date();
