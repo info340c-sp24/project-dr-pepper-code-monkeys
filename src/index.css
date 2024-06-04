@@ -42,7 +42,7 @@ header {
 @media (max-width: 767px) {
   .logo {
     width: 20vh;
-    margin: 0 auto; 
+    margin-right: 12%;
   }
 
   header {
