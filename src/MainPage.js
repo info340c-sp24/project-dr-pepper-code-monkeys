@@ -46,7 +46,7 @@ function Body({ cardInfo }) {
 function IntroContent() {
     return (
         <div className="p-3 rounded bg-light border border-black">
-            <h2 className="text-center fs-1 fw-bold text-dark">Welcome to Find Food Seattle</h2>
+            <h1 className="text-center fs-1 fw-bold text-dark">Welcome to Find Food Seattle</h1>
             <h2 className="fs-3 fw-bold text-dark px-3">Why We Exist</h2>
             <div className="px-3">
                 <p className="text-dark">

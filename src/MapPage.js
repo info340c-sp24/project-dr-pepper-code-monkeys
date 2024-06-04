@@ -162,7 +162,7 @@ function MyComponent() {
           onCloseClick={handleInfoWindowClick}
         >
           <div>
-            <h2>{selectedMarker.title}</h2>
+            <h1>{selectedMarker.title}</h1>
             <p>{selectedMarker.description}</p>
           </div>
         </InfoWindow>
