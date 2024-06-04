@@ -28,10 +28,11 @@ export default function App(props) {
     ListingTitle: '',
     Zip: '',
     ExpDate: '',
+    ContactInfo:''
   });
 
   const formValidation = useCallback(() => {
-    const {Title, Food,Quantity, Unit, Location, ListingTitle, Zip, ExpDate } = newFood;
+    const {Title, Food,Quantity, Unit, Location, ListingTitle, Zip, ExpDate, ContactInfo } = newFood;
     const newErrors= {};
 
     if (!Title || Title.trim().length === 0) {
@@ -69,6 +70,9 @@ export default function App(props) {
       } else if (dayDiff(ExpDate) > 3652) {
         newErrors.ExpDate = 'Please enter a valid expiration date';
       }
+    }
+    if(!ContactInfo||ContactInfo.trim().length===0){
+      newErrors.ContactInfo='Please enter your contact info'
     }
     return newErrors;
   }, [newFood]);
